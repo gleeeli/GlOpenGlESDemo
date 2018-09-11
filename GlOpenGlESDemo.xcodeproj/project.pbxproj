@@ -13,6 +13,11 @@
 		193B580521475A4D00E40425 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 193B580421475A4D00E40425 /* Assets.xcassets */; };
 		193B580821475A4D00E40425 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193B580621475A4D00E40425 /* LaunchScreen.storyboard */; };
 		193B580B21475A4D00E40425 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B580A21475A4D00E40425 /* main.m */; };
+		193B58132147681F00E40425 /* OpenGlSimpleUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B58112147681F00E40425 /* OpenGlSimpleUseViewController.m */; };
+		193B58162147AFBF00E40425 /* DrawTrangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B58152147AFBF00E40425 /* DrawTrangleViewController.m */; };
+		193B58192147B34C00E40425 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B58182147B34C00E40425 /* BaseViewController.m */; };
+		193B581C2147C6B900E40425 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 193B581A2147C6B900E40425 /* shaderf.fsh */; };
+		193B581D2147C6B900E40425 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 193B581B2147C6B900E40425 /* shaderv.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,14 @@
 		193B580721475A4D00E40425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		193B580921475A4D00E40425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		193B580A21475A4D00E40425 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		193B58112147681F00E40425 /* OpenGlSimpleUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGlSimpleUseViewController.m; sourceTree = "<group>"; };
+		193B58122147681F00E40425 /* OpenGlSimpleUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGlSimpleUseViewController.h; sourceTree = "<group>"; };
+		193B58142147AFBF00E40425 /* DrawTrangleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawTrangleViewController.h; sourceTree = "<group>"; };
+		193B58152147AFBF00E40425 /* DrawTrangleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawTrangleViewController.m; sourceTree = "<group>"; };
+		193B58172147B34C00E40425 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		193B58182147B34C00E40425 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		193B581A2147C6B900E40425 /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderf.fsh; sourceTree = "<group>"; };
+		193B581B2147C6B900E40425 /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderv.vsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,15 +71,23 @@
 		193B57FA21475A4C00E40425 /* GlOpenGlESDemo */ = {
 			isa = PBXGroup;
 			children = (
+				193B581A2147C6B900E40425 /* shaderf.fsh */,
+				193B581B2147C6B900E40425 /* shaderv.vsh */,
 				193B57FB21475A4C00E40425 /* AppDelegate.h */,
 				193B57FC21475A4C00E40425 /* AppDelegate.m */,
 				193B57FE21475A4C00E40425 /* ViewController.h */,
 				193B57FF21475A4C00E40425 /* ViewController.m */,
+				193B58122147681F00E40425 /* OpenGlSimpleUseViewController.h */,
+				193B58112147681F00E40425 /* OpenGlSimpleUseViewController.m */,
 				193B580121475A4C00E40425 /* Main.storyboard */,
 				193B580421475A4D00E40425 /* Assets.xcassets */,
 				193B580621475A4D00E40425 /* LaunchScreen.storyboard */,
 				193B580921475A4D00E40425 /* Info.plist */,
 				193B580A21475A4D00E40425 /* main.m */,
+				193B58142147AFBF00E40425 /* DrawTrangleViewController.h */,
+				193B58152147AFBF00E40425 /* DrawTrangleViewController.m */,
+				193B58172147B34C00E40425 /* BaseViewController.h */,
+				193B58182147B34C00E40425 /* BaseViewController.m */,
 			);
 			path = GlOpenGlESDemo;
 			sourceTree = "<group>";
@@ -128,9 +149,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				193B581D2147C6B900E40425 /* shaderv.vsh in Resources */,
 				193B580821475A4D00E40425 /* LaunchScreen.storyboard in Resources */,
 				193B580521475A4D00E40425 /* Assets.xcassets in Resources */,
 				193B580321475A4C00E40425 /* Main.storyboard in Resources */,
+				193B581C2147C6B900E40425 /* shaderf.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +165,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				193B580021475A4C00E40425 /* ViewController.m in Sources */,
+				193B58192147B34C00E40425 /* BaseViewController.m in Sources */,
+				193B58132147681F00E40425 /* OpenGlSimpleUseViewController.m in Sources */,
+				193B58162147AFBF00E40425 /* DrawTrangleViewController.m in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
 			);
