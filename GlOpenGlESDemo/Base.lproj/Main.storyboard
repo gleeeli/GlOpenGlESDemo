@@ -76,6 +76,21 @@
             </objects>
             <point key="canvasLocation" x="-172" y="36"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="lxO-VJ-4ah">
+            <objects>
+                <viewController storyboardIdentifier="GLSLViewController" id="RP6-go-514" customClass="GLSLViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EXd-74-8g9" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Xva-WU-rxF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ep9-a6-8cN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="36"/>
+        </scene>
         <!--Rectangle View Controller-->
         <scene sceneID="C6q-l3-UDQ">
             <objects>

@@ -18,6 +18,7 @@
 		193B581D2147C6B900E40425 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 193B581B2147C6B900E40425 /* shaderv.vsh */; };
 		195583CE222CAD4E00E6F6CB /* OPGlTriangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583CA222CAD4E00E6F6CB /* OPGlTriangleViewController.m */; };
 		195583CF222CAD4E00E6F6CB /* RectangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583CB222CAD4E00E6F6CB /* RectangleViewController.m */; };
+		195583D2222CBA7A00E6F6CB /* GLSLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583D1222CBA7A00E6F6CB /* GLSLViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		195583CB222CAD4E00E6F6CB /* RectangleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleViewController.m; sourceTree = "<group>"; };
 		195583CC222CAD4E00E6F6CB /* RectangleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleViewController.h; sourceTree = "<group>"; };
 		195583CD222CAD4E00E6F6CB /* OPGlTriangleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGlTriangleViewController.h; sourceTree = "<group>"; };
+		195583D0222CBA7A00E6F6CB /* GLSLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSLViewController.h; sourceTree = "<group>"; };
+		195583D1222CBA7A00E6F6CB /* GLSLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSLViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				195583CA222CAD4E00E6F6CB /* OPGlTriangleViewController.m */,
 				195583CC222CAD4E00E6F6CB /* RectangleViewController.h */,
 				195583CB222CAD4E00E6F6CB /* RectangleViewController.m */,
+				195583D0222CBA7A00E6F6CB /* GLSLViewController.h */,
+				195583D1222CBA7A00E6F6CB /* GLSLViewController.m */,
 			);
 			path = GlStudyDemo;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			files = (
 				195583CF222CAD4E00E6F6CB /* RectangleViewController.m in Sources */,
 				195583CE222CAD4E00E6F6CB /* OPGlTriangleViewController.m in Sources */,
+				195583D2222CBA7A00E6F6CB /* GLSLViewController.m in Sources */,
 				193B580021475A4C00E40425 /* ViewController.m in Sources */,
 				193B58192147B34C00E40425 /* BaseViewController.m in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
