@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vIT-n9-xj4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vIT-n9-xj4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,63 +34,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LH5-h9-LWF">
-                                <rect key="frame" x="6" y="80" width="80" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="draw image"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vIo-5v-0nm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="QEJ-E8-cVl"/>
+                                    <outlet property="dataSource" destination="bZh-ui-Ikk" id="t3U-nm-Ppy"/>
+                                    <outlet property="delegate" destination="bZh-ui-Ikk" id="fD7-Ak-mKb"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okA-15-bwW">
-                                <rect key="frame" x="111" y="80" width="81" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="draw tangle"/>
-                                <connections>
-                                    <segue destination="OqX-NF-Xna" kind="push" id="RIy-Cj-cb4"/>
-                                </connections>
-                            </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vIo-5v-0nm" firstAttribute="leading" secondItem="uLS-JN-6h4" secondAttribute="leading" id="7yg-jC-WcP"/>
+                            <constraint firstItem="vIo-5v-0nm" firstAttribute="top" secondItem="uLS-JN-6h4" secondAttribute="top" id="XIm-L5-qEW"/>
+                            <constraint firstItem="uLS-JN-6h4" firstAttribute="bottom" secondItem="vIo-5v-0nm" secondAttribute="bottom" id="ZEY-1n-CFc"/>
+                            <constraint firstItem="uLS-JN-6h4" firstAttribute="trailing" secondItem="vIo-5v-0nm" secondAttribute="trailing" id="ZOR-uV-ann"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uLS-JN-6h4"/>
                     </view>
                     <navigationItem key="navigationItem" id="gu5-rA-iFN"/>
+                    <connections>
+                        <outlet property="tableview" destination="vIo-5v-0nm" id="Yfr-V9-DdV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oca-OG-m8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1026" y="65"/>
+            <point key="canvasLocation" x="-926" y="36"/>
         </scene>
-        <!--Draw Trangle View Controller-->
-        <scene sceneID="Jla-vN-80e">
+        <!--Gl Triangle View Controller-->
+        <scene sceneID="TwF-CN-Blj">
             <objects>
-                <viewController id="OqX-NF-Xna" customClass="DrawTrangleViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SAl-CF-yIv">
+                <viewController storyboardIdentifier="OPGlTriangleViewController" id="mts-2A-BbY" customClass="OPGlTriangleViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Zm-8w-oJ1" customClass="GLKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="yPj-9A-xuG"/>
+                        <viewLayoutGuide key="safeArea" id="aj3-TX-ldO"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6h5-sm-vmb"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ccT-cX-gbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iha-IP-7ju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-958" y="722"/>
+            <point key="canvasLocation" x="-172" y="36"/>
         </scene>
-        <!--Open Gl Simple Use View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Rectangle View Controller-->
+        <scene sceneID="C6q-l3-UDQ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OpenGlSimpleUseViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="RectangleViewController" id="01U-Gj-Y98" customClass="RectangleViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Tz-xw-NPS" customClass="GLKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kqL-nb-opC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PJX-1L-zyt"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cNU-H1-roS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-246" y="64"/>
+            <point key="canvasLocation" x="-172" y="737"/>
         </scene>
     </scenes>
 </document>
