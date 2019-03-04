@@ -12,6 +12,7 @@
 #import "GLSLViewController.h"
 #import "GlSLUniformViewController.h"
 #import "GLSLColorVertexViewController.h"
+#import "TextureViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -29,6 +30,7 @@
     [self.muarray addObject:@{@"name":@"GLSL",@"desc":@"着色器间属性传递"}];
     [self.muarray addObject:@{@"name":@"GLSL Uniform",@"desc":@"着色器全局变量,实现颜色渐变"}];
     [self.muarray addObject:@{@"name":@"GLSL vertexColor",@"desc":@"设置每个顶点颜色"}];
+    [self.muarray addObject:@{@"name":@"Texture",@"desc":@"纹理,生成图片"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -56,6 +58,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = self.muarray[indexPath.row];
     NSString *title = dict[@"name"];
+    NSString *desc = dict[@"desc"];
     UIViewController *vc;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     if ([title isEqualToString:@"draw triangle"]) {
@@ -70,7 +73,11 @@
     }else if ([title isEqualToString:@"GLSL vertexColor"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"GLSLColorVertexViewController"];
     }
+    else if ([title isEqualToString:@"Texture"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"TextureViewController"];
+    }
 
+    vc.title = desc;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -22,6 +22,9 @@
 		195583D5222CD44B00E6F6CB /* GlSLUniformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583D4222CD44B00E6F6CB /* GlSLUniformViewController.m */; };
 		195583D9222CFD5500E6F6CB /* GLSLColorVertexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583D8222CFD5500E6F6CB /* GLSLColorVertexViewController.m */; };
 		195583DD222D0A3E00E6F6CB /* TextureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583DC222D0A3E00E6F6CB /* TextureViewController.m */; };
+		195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583DF222D1B5F00E6F6CB /* BaseOpenGlViewController.m */; };
+		195583E4222D1BE400E6F6CB /* texture_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 195583E2222D1BE400E6F6CB /* texture_shaderv.vsh */; };
+		195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 195583E3222D1BE400E6F6CB /* texture_shaderf.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,10 @@
 		195583D8222CFD5500E6F6CB /* GLSLColorVertexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSLColorVertexViewController.m; sourceTree = "<group>"; };
 		195583DB222D0A3E00E6F6CB /* TextureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureViewController.h; sourceTree = "<group>"; };
 		195583DC222D0A3E00E6F6CB /* TextureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureViewController.m; sourceTree = "<group>"; };
+		195583DE222D1B5F00E6F6CB /* BaseOpenGlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseOpenGlViewController.h; sourceTree = "<group>"; };
+		195583DF222D1B5F00E6F6CB /* BaseOpenGlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseOpenGlViewController.m; sourceTree = "<group>"; };
+		195583E2222D1BE400E6F6CB /* texture_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture_shaderv.vsh; sourceTree = "<group>"; };
+		195583E3222D1BE400E6F6CB /* texture_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture_shaderf.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +117,8 @@
 				195583CA222CAD4E00E6F6CB /* OPGlTriangleViewController.m */,
 				195583CC222CAD4E00E6F6CB /* RectangleViewController.h */,
 				195583CB222CAD4E00E6F6CB /* RectangleViewController.m */,
+				195583DE222D1B5F00E6F6CB /* BaseOpenGlViewController.h */,
+				195583DF222D1B5F00E6F6CB /* BaseOpenGlViewController.m */,
 			);
 			path = GlStudyDemo;
 			sourceTree = "<group>";
@@ -130,10 +139,20 @@
 		195583DA222D09FD00E6F6CB /* Texture */ = {
 			isa = PBXGroup;
 			children = (
+				195583E1222D1B9700E6F6CB /* Shader */,
 				195583DB222D0A3E00E6F6CB /* TextureViewController.h */,
 				195583DC222D0A3E00E6F6CB /* TextureViewController.m */,
 			);
 			path = Texture;
+			sourceTree = "<group>";
+		};
+		195583E1222D1B9700E6F6CB /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				195583E3222D1BE400E6F6CB /* texture_shaderf.fsh */,
+				195583E2222D1BE400E6F6CB /* texture_shaderv.vsh */,
+			);
+			path = Shader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,9 +214,11 @@
 			files = (
 				193B581D2147C6B900E40425 /* shaderv.vsh in Resources */,
 				193B580821475A4D00E40425 /* LaunchScreen.storyboard in Resources */,
+				195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */,
 				193B580521475A4D00E40425 /* Assets.xcassets in Resources */,
 				193B580321475A4C00E40425 /* Main.storyboard in Resources */,
 				193B581C2147C6B900E40425 /* shaderf.fsh in Resources */,
+				195583E4222D1BE400E6F6CB /* texture_shaderv.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +236,7 @@
 				193B580021475A4C00E40425 /* ViewController.m in Sources */,
 				195583D9222CFD5500E6F6CB /* GLSLColorVertexViewController.m in Sources */,
 				193B58192147B34C00E40425 /* BaseViewController.m in Sources */,
+				195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
 				195583D5222CD44B00E6F6CB /* GlSLUniformViewController.m in Sources */,
