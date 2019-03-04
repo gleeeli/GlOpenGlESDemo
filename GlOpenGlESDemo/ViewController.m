@@ -10,6 +10,8 @@
 #import "OPGlTriangleViewController.h"
 #import "RectangleViewController.h"
 #import "GLSLViewController.h"
+#import "GlSLUniformViewController.h"
+#import "GLSLColorVertexViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -20,10 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"OpenGL";
     self.muarray = [[NSMutableArray alloc] init];
     [self.muarray addObject:@{@"name":@"draw triangle",@"desc":@"画三角形"}];
     [self.muarray addObject:@{@"name":@"draw Rectangle",@"desc":@"画矩形，索引缓冲对象 确定顶点绘制顺序"}];
     [self.muarray addObject:@{@"name":@"GLSL",@"desc":@"着色器间属性传递"}];
+    [self.muarray addObject:@{@"name":@"GLSL Uniform",@"desc":@"着色器全局变量,实现颜色渐变"}];
+    [self.muarray addObject:@{@"name":@"GLSL vertexColor",@"desc":@"设置每个顶点颜色"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -43,7 +48,7 @@
     NSDictionary *dict = self.muarray[indexPath.row];
     NSString *title = dict[@"name"];
     NSString *desc = dict[@"desc"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@：%@",title,desc];
+    cell.textLabel.text = [NSString stringWithFormat:@"%zd.%@：%@",(indexPath.row + 1),title,desc];
     cell.textLabel.numberOfLines = 0;
     return cell;
 }
@@ -60,6 +65,10 @@
         vc = [storyboard instantiateViewControllerWithIdentifier:@"RectangleViewController"];
     }else if ([title isEqualToString:@"GLSL"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"GLSLViewController"];
+    }else if ([title isEqualToString:@"GLSL Uniform"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"GlSLUniformViewController"];
+    }else if ([title isEqualToString:@"GLSL vertexColor"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"GLSLColorVertexViewController"];
     }
 
     [self.navigationController pushViewController:vc animated:YES];

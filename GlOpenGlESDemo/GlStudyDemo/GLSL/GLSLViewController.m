@@ -7,7 +7,6 @@
 //
 
 #import "GLSLViewController.h"
-#import <OpenGLES/ES2/glext.h>
 
 @interface GLSLViewController ()
 @property (nonatomic , strong) EAGLContext* mContext;
@@ -15,17 +14,21 @@
 @end
 
 @implementation GLSLViewController
-{
-    int shaderProgram;
-    unsigned int VAO;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self setupOpenGlBase];
     [self initBaseShader];
+    [self handleVertex];
     
+}
+
+
+/**
+ 开始处理顶点数据
+ */
+- (void)handleVertex {
     float vertices[] = {
         -0.5f, -0.5f, 0.0f, // left
         0.5f, -0.5f, 0.0f, // right
@@ -74,9 +77,12 @@
     [EAGLContext setCurrentContext:self.mContext];
 }
 
-- (void)initBaseShader {
-    //将顶点坐标赋值给gl_Position
-    const char *vertexShaderSource = "attribute vec3 Position;\n"
+/**
+ 初始化着色器程序字符串
+ */
+- (void)initShaderString {
+    // FIXME:从顶点着色器传值到片段着色器
+    vertexShaderSource = "attribute vec3 Position;\n"
     "varying lowp vec4 vertexColor;\n"//为片段着色器指定一个颜色输出
     "void main()\n"
     "{\n"
@@ -84,12 +90,19 @@
     "   vertexColor = vec4(0.5, 0.0, 0.0, 1.0); // 把输出变量设置为暗红色;\n"
     "}\0";
     
-    //固定颜色值
-    const char *fragmentShaderSource = "varying lowp vec4 vertexColor;\n"//// 从顶点着色器传来的输入变量（名称相同、类型相同）
+    // 接收传值
+    fragmentShaderSource = "varying lowp vec4 vertexColor;\n"//// 从顶点着色器传来的输入变量（名称相同、类型相同）
     "void main()\n"
     "{\n"
     "   gl_FragColor = vertexColor;\n"
     "}\0";
+}
+
+/**
+ 编译着色器
+ */
+- (void)initBaseShader {
+    [self initShaderString];
     
     int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -101,7 +114,7 @@
     if (!success)
     {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        NSLog(@"Failed to shader vertexShaderSource");
+        NSLog(@"Failed to shader vertexShaderSource:%s",infoLog);
     }
     
     int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -112,7 +125,7 @@
     if (!success)
     {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        NSLog(@"Failed to shader fragmentShaderSource");
+        NSLog(@"Failed to shader fragmentShaderSource:%s",infoLog);
     }
     
     // link shaders 着色器程序
@@ -134,7 +147,6 @@
  *  渲染场景代码
  */
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-    
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
@@ -144,4 +156,12 @@
     //GL_TRIANGLES：每三个顶之间绘制三角形，之间不连接 参数2：从数组缓存中的哪一位开始绘制，一般都定义为0 参数3：顶点的数量
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
+
+/*
+ attribute：表示只读的顶点数据，只用在顶点着色器中。数据来自当前的顶点状态或者顶点数组。它必须是全局范围声明的，不能再函数内部。一个attribute可以是浮点数类型的标量，向量，或者矩阵。不可以是数组或则结构体
+ varying：顶点着色器的输出。例如颜色或者纹理坐标，（插值后的数据）作为片段着色器的只读输入数据。必须是全局范围声明的全局变量。可以是浮点数类型的标量，向量，矩阵。不能是数组或者结构体。
+ lowp：精度修饰符
+ Uniform是一种从CPU中的应用向GPU中的着色器发送数据的方式
+ uniform是全局的(Global) 命名必须唯一，可以任意阶段使用,除非被重置，不然一直保存数据
+ */
 @end

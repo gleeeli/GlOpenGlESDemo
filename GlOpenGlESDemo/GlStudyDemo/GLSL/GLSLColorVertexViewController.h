@@ -1,17 +1,16 @@
 //
-//  GLSLViewController.h
+//  GLSLColorVertexViewController.h
 //  GlOpenGlESDemo
 //
 //  Created by 小柠檬 on 2019/3/4.
 //  Copyright © 2019年 gleeeli. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <GLKit/GLKit.h>
+#import "GLSLViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GLSLViewController : GLKViewController
+@interface GLSLColorVertexViewController : GLSLViewController
 
 @end
 
