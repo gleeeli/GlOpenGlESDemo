@@ -16,8 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initBaseInfo];
     [self setupOpenGlBase];
-    [self initBaseShader];
+    BOOL rShader = [self initBaseShader];
+    if (rShader) {
+        NSLog(@"shader success");
+    }else {
+        NSLog(@"error: shader failder");
+    }
+}
+
+- (void)initBaseInfo {
+    
 }
 
 - (void)setupOpenGlBase {

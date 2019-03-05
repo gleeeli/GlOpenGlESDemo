@@ -18,12 +18,15 @@ NS_ASSUME_NONNULL_BEGIN
     const char *vertexShaderSource;
     const char *fragmentShaderSource;
 }
+@property (nonatomic, copy) NSString *vsFileName;
+@property (nonatomic, copy) NSString *fsFileName;
 
 - (BOOL)initBaseShader;
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
 //链接着色器程序
 - (BOOL)linkProgram:(GLuint)prog;
 - (void)useProgram;
+- (void)initBaseInfo;
 @end
 
 NS_ASSUME_NONNULL_END

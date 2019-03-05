@@ -13,6 +13,7 @@
 #import "GlSLUniformViewController.h"
 #import "GLSLColorVertexViewController.h"
 #import "TextureViewController.h"
+#import "TwoTextureViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -30,7 +31,8 @@
     [self.muarray addObject:@{@"name":@"GLSL",@"desc":@"着色器间属性传递"}];
     [self.muarray addObject:@{@"name":@"GLSL Uniform",@"desc":@"着色器全局变量,实现颜色渐变"}];
     [self.muarray addObject:@{@"name":@"GLSL vertexColor",@"desc":@"设置每个顶点颜色"}];
-    [self.muarray addObject:@{@"name":@"Texture",@"desc":@"纹理,生成图片"}];
+    [self.muarray addObject:@{@"name":@"Texture",@"desc":@"纹理,生成图片，生成图片与顶点颜色的混合色"}];
+    [self.muarray addObject:@{@"name":@"Texture Two",@"desc":@"双重纹理"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -75,6 +77,8 @@
     }
     else if ([title isEqualToString:@"Texture"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"TextureViewController"];
+    }else if ([title isEqualToString:@"Texture Two"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"TwoTextureViewController"];
     }
 
     vc.title = desc;

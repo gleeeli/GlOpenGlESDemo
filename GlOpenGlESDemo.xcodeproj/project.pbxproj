@@ -16,6 +16,9 @@
 		193B58192147B34C00E40425 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B58182147B34C00E40425 /* BaseViewController.m */; };
 		193B581C2147C6B900E40425 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 193B581A2147C6B900E40425 /* shaderf.fsh */; };
 		193B581D2147C6B900E40425 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 193B581B2147C6B900E40425 /* shaderv.vsh */; };
+		194487AA222E116900A5A1E3 /* TwoTextureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194487A9222E116900A5A1E3 /* TwoTextureViewController.m */; };
+		194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 194487AB222E11FF00A5A1E3 /* two_texture_shaderf.fsh */; };
+		194487AE222E127E00A5A1E3 /* two_texture_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 194487AD222E127E00A5A1E3 /* two_texture_shaderv.vsh */; };
 		195583CE222CAD4E00E6F6CB /* OPGlTriangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583CA222CAD4E00E6F6CB /* OPGlTriangleViewController.m */; };
 		195583CF222CAD4E00E6F6CB /* RectangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583CB222CAD4E00E6F6CB /* RectangleViewController.m */; };
 		195583D2222CBA7A00E6F6CB /* GLSLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583D1222CBA7A00E6F6CB /* GLSLViewController.m */; };
@@ -42,6 +45,10 @@
 		193B58182147B34C00E40425 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		193B581A2147C6B900E40425 /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderf.fsh; sourceTree = "<group>"; };
 		193B581B2147C6B900E40425 /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderv.vsh; sourceTree = "<group>"; };
+		194487A8222E116900A5A1E3 /* TwoTextureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoTextureViewController.h; sourceTree = "<group>"; };
+		194487A9222E116900A5A1E3 /* TwoTextureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoTextureViewController.m; sourceTree = "<group>"; };
+		194487AB222E11FF00A5A1E3 /* two_texture_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = two_texture_shaderf.fsh; sourceTree = "<group>"; };
+		194487AD222E127E00A5A1E3 /* two_texture_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = two_texture_shaderv.vsh; sourceTree = "<group>"; };
 		195583CA222CAD4E00E6F6CB /* OPGlTriangleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGlTriangleViewController.m; sourceTree = "<group>"; };
 		195583CB222CAD4E00E6F6CB /* RectangleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleViewController.m; sourceTree = "<group>"; };
 		195583CC222CAD4E00E6F6CB /* RectangleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleViewController.h; sourceTree = "<group>"; };
@@ -142,6 +149,8 @@
 				195583E1222D1B9700E6F6CB /* Shader */,
 				195583DB222D0A3E00E6F6CB /* TextureViewController.h */,
 				195583DC222D0A3E00E6F6CB /* TextureViewController.m */,
+				194487A8222E116900A5A1E3 /* TwoTextureViewController.h */,
+				194487A9222E116900A5A1E3 /* TwoTextureViewController.m */,
 			);
 			path = Texture;
 			sourceTree = "<group>";
@@ -151,6 +160,8 @@
 			children = (
 				195583E3222D1BE400E6F6CB /* texture_shaderf.fsh */,
 				195583E2222D1BE400E6F6CB /* texture_shaderv.vsh */,
+				194487AB222E11FF00A5A1E3 /* two_texture_shaderf.fsh */,
+				194487AD222E127E00A5A1E3 /* two_texture_shaderv.vsh */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -213,9 +224,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				193B581D2147C6B900E40425 /* shaderv.vsh in Resources */,
+				194487AE222E127E00A5A1E3 /* two_texture_shaderv.vsh in Resources */,
 				193B580821475A4D00E40425 /* LaunchScreen.storyboard in Resources */,
 				195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */,
 				193B580521475A4D00E40425 /* Assets.xcassets in Resources */,
+				194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */,
 				193B580321475A4C00E40425 /* Main.storyboard in Resources */,
 				193B581C2147C6B900E40425 /* shaderf.fsh in Resources */,
 				195583E4222D1BE400E6F6CB /* texture_shaderv.vsh in Resources */,
@@ -236,6 +249,7 @@
 				193B580021475A4C00E40425 /* ViewController.m in Sources */,
 				195583D9222CFD5500E6F6CB /* GLSLColorVertexViewController.m in Sources */,
 				193B58192147B34C00E40425 /* BaseViewController.m in Sources */,
+				194487AA222E116900A5A1E3 /* TwoTextureViewController.m in Sources */,
 				195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,

@@ -17,6 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self handleVertex];
+    
+    [self loadTexture];
+}
+
+- (void)initBaseInfo {
+    self.vsFileName = @"texture_shaderv";
+    self.fsFileName = @"texture_shaderf";
+}
+
+- (void)handleVertex {
+    NSLog(@"handle vertex");
     float vertices[] = {
         // positions          // colors           // texture coords
         0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
@@ -52,34 +64,15 @@
     GLuint aTexCoord = glGetAttribLocation(shaderProgram, "aTexCoord");
     glVertexAttribPointer(aTexCoord, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(aTexCoord);
-    
-    
-    [self loadTextureWithImgName:@"fengjing"];
 }
 
 //创建以及加载纹理
-- (void)loadTextureWithImgName:(NSString *)imageName {
-
-    // 1获取图片的CGImageRef
-    CGImageRef spriteImage = [UIImage imageNamed:imageName].CGImage;
-    if (!spriteImage) {
-        NSLog(@"Failed to load image %@", imageName);
-        exit(1);
-    }
-    
-    // 2 读取图片的大小
-    size_t width = CGImageGetWidth(spriteImage);
-    size_t height = CGImageGetHeight(spriteImage);
+- (void)loadTexture {
     
     //得到图片二进制
-    GLubyte * spriteData = (GLubyte *) calloc(width * height * 4, sizeof(GLubyte)); //rgba共4个byte
-    
-    CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width*4,
-                                                       CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
-    
-    // 3在CGContextRef上绘图
-    CGContextDrawImage(spriteContext, CGRectMake(0, 0, width, height), spriteImage);
-    CGContextRelease(spriteContext);
+    float width;
+    float height;
+    GLubyte * spriteData = [self getDataFromImg:@"fengjing" width:&width height:&height];
     
     
     glGenTextures(1, &_myTexture);
@@ -107,14 +100,14 @@
     shaderProgram = glCreateProgram();
     
     // 创建 编译顶点着色器
-    vertShaderPathname = [[NSBundle mainBundle] pathForResource:@"texture_shaderv" ofType:@"vsh"];
+    vertShaderPathname = [[NSBundle mainBundle] pathForResource:self.vsFileName ofType:@"vsh"];
     if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertShaderPathname]) {
         NSLog(@"Failed to compile vertex shader");
         return NO;
     }
     
     // 创建 编译片段着色器
-    fragShaderPathname = [[NSBundle mainBundle] pathForResource:@"texture_shaderf" ofType:@"fsh"];
+    fragShaderPathname = [[NSBundle mainBundle] pathForResource:self.fsFileName ofType:@"fsh"];
     if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname]) {
         NSLog(@"Failed to compile fragment shader");
         return NO;
@@ -154,6 +147,40 @@
     }
     
     return YES;
+}
+
+/**
+ 获取图片二进制 以及宽高
+ 
+ @param imgName 图片名
+ */
+- (GLubyte *)getDataFromImg:(NSString *)imgName width:(float *)width height:(float *)height {
+    // 1获取图片的CGImageRef
+    CGImageRef spriteImage = [UIImage imageNamed:imgName].CGImage;
+    if (!spriteImage) {
+        NSLog(@"Failed to load image %@", imgName);
+        exit(1);
+    }
+    
+    // 2 读取图片的大小
+    size_t width_s = CGImageGetWidth(spriteImage);
+    size_t height_s = CGImageGetHeight(spriteImage);
+    GLubyte * spriteData = (GLubyte *) calloc(width_s * height_s * 4, sizeof(GLubyte));////rgba共4个byte
+    
+    
+    CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width_s, height_s,
+                                                       8,//内存中像素的每个组件的位数.例如，对于32位像素格式和RGB 颜色空间，你应该将这个值设为8.
+                                                       width_s*4,//bitmap的每一行在内存所占的比特数
+                                                       CGImageGetColorSpace(spriteImage),//bitmap上下文使用的颜色空间。
+                                                       kCGImageAlphaPremultipliedLast);//指定bitmap是否包含alpha通道，像素中alpha通道的相对位置，像素组件是整形还是浮点型等信息的字符串。
+    
+    // 3在CGContextRef上绘图
+    CGContextDrawImage(spriteContext, CGRectMake(0, 0, width_s, height_s), spriteImage);
+    CGContextRelease(spriteContext);
+    *width = width_s;
+    *height = height_s;
+    
+    return spriteData;
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
