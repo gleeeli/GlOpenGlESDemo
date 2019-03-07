@@ -10,6 +10,7 @@
 
 @interface BaseOpenGlViewController ()
 @property (nonatomic , strong) EAGLContext* mContext;
+@property (nonatomic, assign) NSTimeInterval startTime;
 @end
 
 @implementation BaseOpenGlViewController
@@ -24,6 +25,7 @@
     }else {
         NSLog(@"error: shader failder");
     }
+    self.startTime = [[NSDate date] timeIntervalSince1970];
 }
 
 - (void)initBaseInfo {
@@ -110,5 +112,12 @@
 
 - (void)useProgram {
     glUseProgram(shaderProgram);
+}
+
+/**
+ 获取运行时间
+ */
+- (NSTimeInterval)getTimeRuning {
+    return [[NSDate date]timeIntervalSince1970] - self.startTime;
 }
 @end

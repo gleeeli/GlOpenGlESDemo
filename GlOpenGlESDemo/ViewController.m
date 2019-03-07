@@ -14,6 +14,7 @@
 #import "GLSLColorVertexViewController.h"
 #import "TextureViewController.h"
 #import "TwoTextureViewController.h"
+#import "TransformViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -33,6 +34,7 @@
     [self.muarray addObject:@{@"name":@"GLSL vertexColor",@"desc":@"设置每个顶点颜色"}];
     [self.muarray addObject:@{@"name":@"Texture",@"desc":@"纹理,生成图片，生成图片与顶点颜色的混合色"}];
     [self.muarray addObject:@{@"name":@"Texture Two",@"desc":@"双重纹理"}];
+    [self.muarray addObject:@{@"name":@"Transform",@"desc":@"变换，矩阵的加减乘等算法。可实现一些位移，缩放，旋转"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -80,7 +82,10 @@
     }else if ([title isEqualToString:@"Texture Two"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"TwoTextureViewController"];
     }
-
+    else if ([title isEqualToString:@"Transform"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"TransformViewController"];
+    }
+    
     vc.title = desc;
     [self.navigationController pushViewController:vc animated:YES];
 }

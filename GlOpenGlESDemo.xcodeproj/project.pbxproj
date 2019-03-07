@@ -16,6 +16,7 @@
 		193B58192147B34C00E40425 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B58182147B34C00E40425 /* BaseViewController.m */; };
 		193B581C2147C6B900E40425 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 193B581A2147C6B900E40425 /* shaderf.fsh */; };
 		193B581D2147C6B900E40425 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 193B581B2147C6B900E40425 /* shaderv.vsh */; };
+		194008762230F18A0081EC6F /* transform_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 194008752230F18A0081EC6F /* transform_shaderv.vsh */; };
 		194487AA222E116900A5A1E3 /* TwoTextureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194487A9222E116900A5A1E3 /* TwoTextureViewController.m */; };
 		194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 194487AB222E11FF00A5A1E3 /* two_texture_shaderf.fsh */; };
 		194487AE222E127E00A5A1E3 /* two_texture_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 194487AD222E127E00A5A1E3 /* two_texture_shaderv.vsh */; };
@@ -28,6 +29,7 @@
 		195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583DF222D1B5F00E6F6CB /* BaseOpenGlViewController.m */; };
 		195583E4222D1BE400E6F6CB /* texture_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 195583E2222D1BE400E6F6CB /* texture_shaderv.vsh */; };
 		195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 195583E3222D1BE400E6F6CB /* texture_shaderf.fsh */; };
+		19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19574445222F9D9100AE4383 /* TransformViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,7 @@
 		193B58182147B34C00E40425 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		193B581A2147C6B900E40425 /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderf.fsh; sourceTree = "<group>"; };
 		193B581B2147C6B900E40425 /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderv.vsh; sourceTree = "<group>"; };
+		194008752230F18A0081EC6F /* transform_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = transform_shaderv.vsh; sourceTree = "<group>"; };
 		194487A8222E116900A5A1E3 /* TwoTextureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoTextureViewController.h; sourceTree = "<group>"; };
 		194487A9222E116900A5A1E3 /* TwoTextureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoTextureViewController.m; sourceTree = "<group>"; };
 		194487AB222E11FF00A5A1E3 /* two_texture_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = two_texture_shaderf.fsh; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 		195583DF222D1B5F00E6F6CB /* BaseOpenGlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseOpenGlViewController.m; sourceTree = "<group>"; };
 		195583E2222D1BE400E6F6CB /* texture_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture_shaderv.vsh; sourceTree = "<group>"; };
 		195583E3222D1BE400E6F6CB /* texture_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture_shaderf.fsh; sourceTree = "<group>"; };
+		19574444222F9D9100AE4383 /* TransformViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformViewController.h; sourceTree = "<group>"; };
+		19574445222F9D9100AE4383 /* TransformViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TransformViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +102,8 @@
 		193B57FA21475A4C00E40425 /* GlOpenGlESDemo */ = {
 			isa = PBXGroup;
 			children = (
+				194004062230BE5E0081EC6F /* Vendor */,
+				194004032230B5920081EC6F /* Resource */,
 				195583C9222CAD3200E6F6CB /* GlStudyDemo */,
 				193B581A2147C6B900E40425 /* shaderf.fsh */,
 				193B581B2147C6B900E40425 /* shaderv.vsh */,
@@ -115,9 +122,32 @@
 			path = GlOpenGlESDemo;
 			sourceTree = "<group>";
 		};
+		194004032230B5920081EC6F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		194004062230BE5E0081EC6F /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		194008742230F1660081EC6F /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				194008752230F18A0081EC6F /* transform_shaderv.vsh */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
 		195583C9222CAD3200E6F6CB /* GlStudyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				19574443222F9D4300AE4383 /* Transform */,
 				195583DA222D09FD00E6F6CB /* Texture */,
 				195583D6222CFD2600E6F6CB /* GLSL */,
 				195583CD222CAD4E00E6F6CB /* OPGlTriangleViewController.h */,
@@ -164,6 +194,16 @@
 				194487AD222E127E00A5A1E3 /* two_texture_shaderv.vsh */,
 			);
 			path = Shader;
+			sourceTree = "<group>";
+		};
+		19574443222F9D4300AE4383 /* Transform */ = {
+			isa = PBXGroup;
+			children = (
+				194008742230F1660081EC6F /* Shader */,
+				19574444222F9D9100AE4383 /* TransformViewController.h */,
+				19574445222F9D9100AE4383 /* TransformViewController.mm */,
+			);
+			path = Transform;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +268,7 @@
 				193B580821475A4D00E40425 /* LaunchScreen.storyboard in Resources */,
 				195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */,
 				193B580521475A4D00E40425 /* Assets.xcassets in Resources */,
+				194008762230F18A0081EC6F /* transform_shaderv.vsh in Resources */,
 				194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */,
 				193B580321475A4C00E40425 /* Main.storyboard in Resources */,
 				193B581C2147C6B900E40425 /* shaderf.fsh in Resources */,
@@ -253,6 +294,7 @@
 				195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
+				19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */,
 				195583D5222CD44B00E6F6CB /* GlSLUniformViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.9.3/include;
 				INFOPLIST_FILE = GlOpenGlESDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -410,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.9.3/include;
 				INFOPLIST_FILE = GlOpenGlESDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

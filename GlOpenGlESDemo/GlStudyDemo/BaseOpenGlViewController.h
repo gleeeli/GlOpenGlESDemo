@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)linkProgram:(GLuint)prog;
 - (void)useProgram;
 - (void)initBaseInfo;
+/**
+ 获取运行时间
+ */
+- (NSTimeInterval)getTimeRuning;
 @end
 
 NS_ASSUME_NONNULL_END

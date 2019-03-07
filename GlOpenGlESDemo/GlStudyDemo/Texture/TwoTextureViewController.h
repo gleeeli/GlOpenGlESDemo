@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TwoTextureViewController : TextureViewController
-
+@property (nonatomic , assign) GLuint myTexture1;
+@property (nonatomic , assign) GLuint myTexture2;
 @end
 
 NS_ASSUME_NONNULL_END

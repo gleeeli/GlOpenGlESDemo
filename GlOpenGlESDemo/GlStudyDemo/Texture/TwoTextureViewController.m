@@ -9,8 +9,7 @@
 #import "TwoTextureViewController.h"
 
 @interface TwoTextureViewController ()
-@property (nonatomic , assign) GLuint myTexture1;
-@property (nonatomic , assign) GLuint myTexture2;
+
 @end
 
 @implementation TwoTextureViewController
@@ -75,6 +74,9 @@
     //使用glUniform1i设置每个采样器的方式告诉OpenGL每个着色器采样器属于哪个纹理单元
     glUniform1i(glGetUniformLocation(shaderProgram, "texture1"), 0);
     glUniform1i(glGetUniformLocation(shaderProgram, "texture2"), 1);
+    
+    
+    
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
