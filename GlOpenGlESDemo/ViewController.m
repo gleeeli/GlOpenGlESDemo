@@ -16,6 +16,7 @@
 #import "TwoTextureViewController.h"
 #import "TransformViewController.h"
 #import "CoordinateSystemsViewController.h"
+#import "CubeCSViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -37,6 +38,7 @@
     [self.muarray addObject:@{@"name":@"Texture Two",@"desc":@"双重纹理"}];
     [self.muarray addObject:@{@"name":@"Transform",@"desc":@"变换，矩阵的加减乘等算法。可实现一些位移，缩放，旋转"}];
     [self.muarray addObject:@{@"name":@"3D Coordinate",@"desc":@"坐标系统 3D坐标转2D坐标"}];
+    [self.muarray addObject:@{@"name":@"3D Cube",@"desc":@"坐标系统 3D立方体"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -89,6 +91,9 @@
     }
     else if ([title isEqualToString:@"3D Coordinate"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"CoordinateSystemsViewController"];
+    }
+    else if ([title isEqualToString:@"3D Cube"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"CubeCSViewController"];
     }
     
     vc.title = desc;

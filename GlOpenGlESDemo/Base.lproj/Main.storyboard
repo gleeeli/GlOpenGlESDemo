@@ -181,6 +181,21 @@
             </objects>
             <point key="canvasLocation" x="3726" y="726"/>
         </scene>
+        <!--CubeCS View Controller-->
+        <scene sceneID="L2W-G8-3YV">
+            <objects>
+                <viewController storyboardIdentifier="CubeCSViewController" id="0IU-X2-ZZp" customClass="CubeCSViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d5R-Oq-PjN" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mAA-XJ-7bD"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WDi-5f-hgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4450" y="713"/>
+        </scene>
         <!--Rectangle View Controller-->
         <scene sceneID="C6q-l3-UDQ">
             <objects>

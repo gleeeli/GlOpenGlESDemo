@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1912179822603AAD00DBFA33 /* CubeCSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1912179722603AAD00DBFA33 /* CubeCSViewController.mm */; };
 		1912DB61225F3EE300D05EC2 /* simple3D_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1912DB60225F3EE300D05EC2 /* simple3D_shaderf.fsh */; };
 		193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B57FC21475A4C00E40425 /* AppDelegate.m */; };
 		193B580021475A4C00E40425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B57FF21475A4C00E40425 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1912179622603AAD00DBFA33 /* CubeCSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeCSViewController.h; sourceTree = "<group>"; };
+		1912179722603AAD00DBFA33 /* CubeCSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CubeCSViewController.mm; sourceTree = "<group>"; };
 		1912DB60225F3EE300D05EC2 /* simple3D_shaderf.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simple3D_shaderf.fsh; sourceTree = "<group>"; };
 		193B57F821475A4C00E40425 /* GlOpenGlESDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlOpenGlESDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		193B57FB21475A4C00E40425 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				195FC994225F0F7C008FF16B /* Shader */,
 				195FC991225ED159008FF16B /* CoordinateSystemsViewController.h */,
 				195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */,
+				1912179622603AAD00DBFA33 /* CubeCSViewController.h */,
+				1912179722603AAD00DBFA33 /* CubeCSViewController.mm */,
 			);
 			path = "Coordinate Systems";
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				195583D9222CFD5500E6F6CB /* GLSLColorVertexViewController.m in Sources */,
 				193B58192147B34C00E40425 /* BaseViewController.m in Sources */,
 				194487AA222E116900A5A1E3 /* TwoTextureViewController.m in Sources */,
+				1912179822603AAD00DBFA33 /* CubeCSViewController.mm in Sources */,
 				195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
