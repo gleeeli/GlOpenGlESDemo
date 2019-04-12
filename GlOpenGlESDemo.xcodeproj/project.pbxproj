@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1912DB61225F3EE300D05EC2 /* simple3D_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1912DB60225F3EE300D05EC2 /* simple3D_shaderf.fsh */; };
 		193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B57FC21475A4C00E40425 /* AppDelegate.m */; };
 		193B580021475A4C00E40425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B57FF21475A4C00E40425 /* ViewController.m */; };
 		193B580321475A4C00E40425 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193B580121475A4C00E40425 /* Main.storyboard */; };
@@ -30,9 +31,12 @@
 		195583E4222D1BE400E6F6CB /* texture_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 195583E2222D1BE400E6F6CB /* texture_shaderv.vsh */; };
 		195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 195583E3222D1BE400E6F6CB /* texture_shaderf.fsh */; };
 		19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19574445222F9D9100AE4383 /* TransformViewController.mm */; };
+		195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */; };
+		195FC996225F0FDA008FF16B /* simple3D_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 195FC995225F0FDA008FF16B /* simple3D_shaderv.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1912DB60225F3EE300D05EC2 /* simple3D_shaderf.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simple3D_shaderf.fsh; sourceTree = "<group>"; };
 		193B57F821475A4C00E40425 /* GlOpenGlESDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlOpenGlESDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		193B57FB21475A4C00E40425 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		193B57FC21475A4C00E40425 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -70,6 +74,10 @@
 		195583E3222D1BE400E6F6CB /* texture_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture_shaderf.fsh; sourceTree = "<group>"; };
 		19574444222F9D9100AE4383 /* TransformViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformViewController.h; sourceTree = "<group>"; };
 		19574445222F9D9100AE4383 /* TransformViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TransformViewController.mm; sourceTree = "<group>"; };
+		195FC991225ED159008FF16B /* CoordinateSystemsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoordinateSystemsViewController.h; sourceTree = "<group>"; };
+		195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CoordinateSystemsViewController.mm; sourceTree = "<group>"; };
+		195FC995225F0FDA008FF16B /* simple3D_shaderv.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simple3D_shaderv.vsh; sourceTree = "<group>"; };
+		195FC998225F1940008FF16B /* CommHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 		193B57FA21475A4C00E40425 /* GlOpenGlESDemo */ = {
 			isa = PBXGroup;
 			children = (
+				195FC997225F192E008FF16B /* Comm */,
 				194004062230BE5E0081EC6F /* Vendor */,
 				194004032230B5920081EC6F /* Resource */,
 				195583C9222CAD3200E6F6CB /* GlStudyDemo */,
@@ -147,6 +156,7 @@
 		195583C9222CAD3200E6F6CB /* GlStudyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				195FC990225ED038008FF16B /* Coordinate Systems */,
 				19574443222F9D4300AE4383 /* Transform */,
 				195583DA222D09FD00E6F6CB /* Texture */,
 				195583D6222CFD2600E6F6CB /* GLSL */,
@@ -204,6 +214,33 @@
 				19574445222F9D9100AE4383 /* TransformViewController.mm */,
 			);
 			path = Transform;
+			sourceTree = "<group>";
+		};
+		195FC990225ED038008FF16B /* Coordinate Systems */ = {
+			isa = PBXGroup;
+			children = (
+				195FC994225F0F7C008FF16B /* Shader */,
+				195FC991225ED159008FF16B /* CoordinateSystemsViewController.h */,
+				195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */,
+			);
+			path = "Coordinate Systems";
+			sourceTree = "<group>";
+		};
+		195FC994225F0F7C008FF16B /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				195FC995225F0FDA008FF16B /* simple3D_shaderv.vsh */,
+				1912DB60225F3EE300D05EC2 /* simple3D_shaderf.fsh */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
+		195FC997225F192E008FF16B /* Comm */ = {
+			isa = PBXGroup;
+			children = (
+				195FC998225F1940008FF16B /* CommHeader.h */,
+			);
+			path = Comm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,10 +303,12 @@
 				193B581D2147C6B900E40425 /* shaderv.vsh in Resources */,
 				194487AE222E127E00A5A1E3 /* two_texture_shaderv.vsh in Resources */,
 				193B580821475A4D00E40425 /* LaunchScreen.storyboard in Resources */,
+				195FC996225F0FDA008FF16B /* simple3D_shaderv.vsh in Resources */,
 				195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */,
 				193B580521475A4D00E40425 /* Assets.xcassets in Resources */,
 				194008762230F18A0081EC6F /* transform_shaderv.vsh in Resources */,
 				194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */,
+				1912DB61225F3EE300D05EC2 /* simple3D_shaderf.fsh in Resources */,
 				193B580321475A4C00E40425 /* Main.storyboard in Resources */,
 				193B581C2147C6B900E40425 /* shaderf.fsh in Resources */,
 				195583E4222D1BE400E6F6CB /* texture_shaderv.vsh in Resources */,
@@ -294,6 +333,7 @@
 				195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
+				195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */,
 				19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */,
 				195583D5222CD44B00E6F6CB /* GlSLUniformViewController.m in Sources */,
 			);

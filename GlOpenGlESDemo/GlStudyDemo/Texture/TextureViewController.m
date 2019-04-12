@@ -9,7 +9,7 @@
 #import "TextureViewController.h"
 
 @interface TextureViewController ()
-@property (nonatomic , assign) GLuint myTexture;
+
 @end
 
 @implementation TextureViewController
@@ -68,7 +68,7 @@
 
 //创建以及加载纹理
 - (void)loadTexture {
-    
+    NSLog(@"加载纹理-loadTexture");
     //得到图片二进制
     float width;
     float height;

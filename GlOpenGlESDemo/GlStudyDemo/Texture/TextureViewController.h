@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TextureViewController : BaseOpenGlViewController
+@property (nonatomic , assign) GLuint myTexture;
+
 - (void)handleVertex;
 /**
  获取图片二进制 以及宽高

@@ -15,6 +15,7 @@
 #import "TextureViewController.h"
 #import "TwoTextureViewController.h"
 #import "TransformViewController.h"
+#import "CoordinateSystemsViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -35,6 +36,7 @@
     [self.muarray addObject:@{@"name":@"Texture",@"desc":@"纹理,生成图片，生成图片与顶点颜色的混合色"}];
     [self.muarray addObject:@{@"name":@"Texture Two",@"desc":@"双重纹理"}];
     [self.muarray addObject:@{@"name":@"Transform",@"desc":@"变换，矩阵的加减乘等算法。可实现一些位移，缩放，旋转"}];
+    [self.muarray addObject:@{@"name":@"3D Coordinate",@"desc":@"坐标系统 3D坐标转2D坐标"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -84,6 +86,9 @@
     }
     else if ([title isEqualToString:@"Transform"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"TransformViewController"];
+    }
+    else if ([title isEqualToString:@"3D Coordinate"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"CoordinateSystemsViewController"];
     }
     
     vc.title = desc;

@@ -120,4 +120,5 @@
 - (NSTimeInterval)getTimeRuning {
     return [[NSDate date]timeIntervalSince1970] - self.startTime;
 }
+
 @end
