@@ -72,7 +72,7 @@
     glm::mat4 model         = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
     glm::mat4 view          = glm::mat4(1.0f);
     glm::mat4 projection    = glm::mat4(1.0f);
-    //将其绕着x轴旋转，使它看起来像放在地上一样  最好一个参数决定绕x y z轴旋转
+    //将其绕着x轴旋转，使它看起来像放在地上一样  最后一个参数决定绕x y z轴旋转
     model = glm::rotate(model, glm::radians(-60.0f), glm::vec3(1.0f, 0.0f, 0.0f));
     // 注意，我们将矩阵向我们要进行移动场景的反方向移动。这里向z轴移动，负数代表远离屏幕的效果
     view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -4.0f));
