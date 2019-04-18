@@ -71,7 +71,7 @@
         0.5f,  0.5f, 0.0f,   0.0f, 1.0f,  // top left
         0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
 
-        //左平面 留个缺口，不留缺口可将y轴的0.0f改为0.5f
+        //左平面 留个缺口，不留缺口可将y轴的0.0f改为-0.5f
         -0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
         -0.5f, 0.0f, -0.5f,   1.0f, 0.0f, // bottom right
         -0.5f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
@@ -147,6 +147,7 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
 
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    //深度测试清除缓存
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     // bind Texture
