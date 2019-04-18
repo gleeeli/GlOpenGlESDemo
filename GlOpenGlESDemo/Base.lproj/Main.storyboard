@@ -196,6 +196,21 @@
             </objects>
             <point key="canvasLocation" x="4450" y="713"/>
         </scene>
+        <!--Multipler Cube View Controller-->
+        <scene sceneID="Eh1-Ux-AQ6">
+            <objects>
+                <viewController storyboardIdentifier="MultiplerCubeViewController" id="MgA-XU-Il1" customClass="MultiplerCubeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aEN-UA-adM" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fM2-mO-yWq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2vz-X1-XmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5145" y="721"/>
+        </scene>
         <!--Rectangle View Controller-->
         <scene sceneID="C6q-l3-UDQ">
             <objects>

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CubeCSViewController : BaseCoordinateSysViewController
-
+- (void)handle3D;
 @end
 
 NS_ASSUME_NONNULL_END

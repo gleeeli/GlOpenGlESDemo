@@ -34,6 +34,7 @@
 		19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19574445222F9D9100AE4383 /* TransformViewController.mm */; };
 		195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */; };
 		195FC996225F0FDA008FF16B /* simple3D_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 195FC995225F0FDA008FF16B /* simple3D_shaderv.vsh */; };
+		19AB06FA2268780900E49661 /* MultiplerCubeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19AB06F92268780900E49661 /* MultiplerCubeViewController.mm */; };
 		19ED2A52226715610030361A /* BaseCoordinateSysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19ED2A51226715610030361A /* BaseCoordinateSysViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CoordinateSystemsViewController.mm; sourceTree = "<group>"; };
 		195FC995225F0FDA008FF16B /* simple3D_shaderv.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simple3D_shaderv.vsh; sourceTree = "<group>"; };
 		195FC998225F1940008FF16B /* CommHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommHeader.h; sourceTree = "<group>"; };
+		19AB06F82268780900E49661 /* MultiplerCubeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiplerCubeViewController.h; sourceTree = "<group>"; };
+		19AB06F92268780900E49661 /* MultiplerCubeViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MultiplerCubeViewController.mm; sourceTree = "<group>"; };
 		19ED2A50226715610030361A /* BaseCoordinateSysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCoordinateSysViewController.h; sourceTree = "<group>"; };
 		19ED2A51226715610030361A /* BaseCoordinateSysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCoordinateSysViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,6 +235,8 @@
 				1912179622603AAD00DBFA33 /* CubeCSViewController.h */,
 				1912179722603AAD00DBFA33 /* CubeCSViewController.mm */,
 				195FC994225F0F7C008FF16B /* Shader */,
+				19AB06F82268780900E49661 /* MultiplerCubeViewController.h */,
+				19AB06F92268780900E49661 /* MultiplerCubeViewController.mm */,
 			);
 			path = "Coordinate Systems";
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 			files = (
 				195583CF222CAD4E00E6F6CB /* RectangleViewController.m in Sources */,
 				195583CE222CAD4E00E6F6CB /* OPGlTriangleViewController.m in Sources */,
+				19AB06FA2268780900E49661 /* MultiplerCubeViewController.mm in Sources */,
 				195583DD222D0A3E00E6F6CB /* TextureViewController.m in Sources */,
 				195583D2222CBA7A00E6F6CB /* GLSLViewController.m in Sources */,
 				193B580021475A4C00E40425 /* ViewController.m in Sources */,
