@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 @property (nonatomic, copy) NSString *vsFileName;
 @property (nonatomic, copy) NSString *fsFileName;
+@property (nonatomic , strong) EAGLContext* mContext;
 
 - (BOOL)initBaseShader;
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
@@ -27,10 +28,21 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)linkProgram:(GLuint)prog;
 - (void)useProgram;
 - (void)initBaseInfo;
+- (void)setupOpenGlBase;
+
 /**
  获取运行时间
  */
 - (NSTimeInterval)getTimeRuning;
+
+/**
+ 获取图片二进制 以及宽高
+ 
+ @param imgName 图片名
+ */
+- (GLubyte *)getDataFromImg:(NSString *)imgName width:(float *)width height:(float *)height;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

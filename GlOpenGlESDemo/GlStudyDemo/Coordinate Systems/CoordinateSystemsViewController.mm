@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self loadTexture];
 }
 
 - (void)initBaseInfo {

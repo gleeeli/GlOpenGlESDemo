@@ -6,11 +6,11 @@
 //  Copyright © 2019年 gleeeli. All rights reserved.
 //
 
-#import "CoordinateSystemsViewController.h"
+#import "BaseCoordinateSysViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CubeCSViewController : CoordinateSystemsViewController
+@interface CubeCSViewController : BaseCoordinateSysViewController
 
 @end
 

@@ -34,6 +34,7 @@
 		19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19574445222F9D9100AE4383 /* TransformViewController.mm */; };
 		195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */; };
 		195FC996225F0FDA008FF16B /* simple3D_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 195FC995225F0FDA008FF16B /* simple3D_shaderv.vsh */; };
+		19ED2A52226715610030361A /* BaseCoordinateSysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19ED2A51226715610030361A /* BaseCoordinateSysViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CoordinateSystemsViewController.mm; sourceTree = "<group>"; };
 		195FC995225F0FDA008FF16B /* simple3D_shaderv.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simple3D_shaderv.vsh; sourceTree = "<group>"; };
 		195FC998225F1940008FF16B /* CommHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommHeader.h; sourceTree = "<group>"; };
+		19ED2A50226715610030361A /* BaseCoordinateSysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCoordinateSysViewController.h; sourceTree = "<group>"; };
+		19ED2A51226715610030361A /* BaseCoordinateSysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCoordinateSysViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,11 +225,13 @@
 		195FC990225ED038008FF16B /* Coordinate Systems */ = {
 			isa = PBXGroup;
 			children = (
-				195FC994225F0F7C008FF16B /* Shader */,
+				19ED2A50226715610030361A /* BaseCoordinateSysViewController.h */,
+				19ED2A51226715610030361A /* BaseCoordinateSysViewController.m */,
 				195FC991225ED159008FF16B /* CoordinateSystemsViewController.h */,
 				195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */,
 				1912179622603AAD00DBFA33 /* CubeCSViewController.h */,
 				1912179722603AAD00DBFA33 /* CubeCSViewController.mm */,
+				195FC994225F0F7C008FF16B /* Shader */,
 			);
 			path = "Coordinate Systems";
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				193B580021475A4C00E40425 /* ViewController.m in Sources */,
 				195583D9222CFD5500E6F6CB /* GLSLColorVertexViewController.m in Sources */,
 				193B58192147B34C00E40425 /* BaseViewController.m in Sources */,
+				19ED2A52226715610030361A /* BaseCoordinateSysViewController.m in Sources */,
 				194487AA222E116900A5A1E3 /* TwoTextureViewController.m in Sources */,
 				1912179822603AAD00DBFA33 /* CubeCSViewController.mm in Sources */,
 				195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */,

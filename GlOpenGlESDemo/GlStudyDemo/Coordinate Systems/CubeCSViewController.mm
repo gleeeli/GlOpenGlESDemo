@@ -13,6 +13,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #import "CommHeader.h"
 #include <string>
+#include <OpenGLES/ES2/glext.h>
+
 
 @interface CubeCSViewController ()
 
@@ -22,121 +24,86 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.imageName = @"back.jpeg";
+    [self loadTexture];
+}
+
+- (void)setupOpenGlBase {
+    [super setupOpenGlBase];
+    //此句与深度测试有关 切记
+//    view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    [self openDepth];
+}
+
+//开启深度测试
+- (void)openDepth {
+    glEnable(GL_DEPTH_TEST);
 }
 
 - (void)handleVertex {
     NSLog(@"handle vertex");
-    
-    glEnable(GL_DEPTH_TEST);
-    
+
     //一共需要36个顶点（6个面 x 每个面有2个三角形组成 x 每个三角形有3个顶点）
-//    float vertices[] = {
-//        // z轴上的两个平行面
-        //前平面
-//        0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
-//        0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
-//        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f,  0.5f, 0.0f,   0.0f, 1.0f,  // top left
-//        0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
-//
-        //后平面
-//        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
-//        0.5f, -0.5f, -0.5f,   1.0f, 0.0f, // bottom right
-//        -0.5f, -0.5f, -0.5f,   0.0f, 0.0f, // bottom left
-//        -0.5f, -0.5f, -0.5f,   0.0f, 0.0f, // bottom left
-//        -0.5f,  0.5f, -0.5f,   0.0f, 1.0f,  // top left
-//        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
-//
-//        // x轴上的两个平行面
-//        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
-//        0.5f, 0.0f, -0.5f,   1.0f, 0.0f, // bottom right
-//        0.5f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
-//        0.5f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
-//        0.5f,  0.5f, 0.0f,   0.0f, 1.0f,  // top left
-//        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
-//
-//        -0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
-//        -0.5f, 0.0f, -0.5f,   1.0f, 0.0f, // bottom right
-//        -0.5f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f,  0.5f, 0.0f,   0.0f, 1.0f,  // top left
-//        -0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
-//
-//        // y轴上的两个平行面
-//        //上平面
-//        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
-//        0.5f, 0.5f, 0.0f,   1.0f, 0.0f, // bottom right
-//        -0.5f, 0.5f, 0.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f, 0.5f, 0.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f,  0.5f, -0.5f,   0.0f, 1.0f,  // top left
-//        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
-//
-//        //下平面
-//        0.5f,  -0.5f, -0.5f,   1.0f, 1.0f, // top right
-//        0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
-//        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f,  -0.5f, -0.5f,   0.0f, 1.0f,  // top left
-//        0.5f,  -0.5f, -0.5f,   1.0f, 1.0f // top right
-//    };
-    
     float vertices[] = {
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,//后下左
-        0.5f, -0.5f, -0.5f,  1.0f, 0.0f,//后下右边
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-        
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        
-//        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-//        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-//        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-//
-//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-//        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-//        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        
-//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-//        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-//        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+        // z轴上的两个平行面
+        //前平面
+        0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
+        0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   0.0f, 1.0f,  // top left
+        0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
+
+        //后平面
+        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
+        0.5f, -0.5f, -0.5f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, -0.5f,   0.0f, 0.0f, // bottom left
+        -0.5f, -0.5f, -0.5f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, -0.5f,   0.0f, 1.0f,  // top left
+        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
+
+        // x轴上的两个平行面
+        //右平面
+        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
+        0.5f, -0.5f, -0.5f,   1.0f, 0.0f, // bottom right
+        0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        0.5f,  0.5f, 0.0f,   0.0f, 1.0f,  // top left
+        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
+
+        //左平面 留个缺口，不留缺口可将y轴的0.0f改为0.5f
+        -0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
+        -0.5f, 0.0f, -0.5f,   1.0f, 0.0f, // bottom right
+        -0.5f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   0.0f, 1.0f,  // top left
+        -0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
+
+        // y轴上的两个平行面
+        //上平面
+        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
+        0.5f, 0.5f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, 0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f, 0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, -0.5f,   0.0f, 1.0f,  // top left
+        0.5f,  0.5f, -0.5f,   1.0f, 1.0f, // top right
+
+        //下平面
+        0.5f,  -0.5f, -0.5f,   1.0f, 1.0f, // top right
+        0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  -0.5f, -0.5f,   0.0f, 1.0f,  // top left
+        0.5f,  -0.5f, -0.5f,   1.0f, 1.0f // top right
     };
     
-    unsigned int VBO,EBO;
+    unsigned int VBO;
     glGenVertexArraysOES(1, &VAO);
     glGenBuffers(1, &VBO);
-//    glGenBuffers(1, &EBO);
     
     glBindVertexArrayOES(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    
-//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-//    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
     
     // position attribute
     GLuint position = glGetAttribLocation(shaderProgram, "aPos");
@@ -148,17 +115,17 @@
     glVertexAttribPointer(aTexCoord, 2, GL_FLOAT, GL_FALSE,5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(aTexCoord);
     
-    glEnable(GL_DEPTH_TEST);
+    [self useProgram];
+    
 }
 
 - (void)handle3D {
-    glEnable(GL_DEPTH_TEST);
     NSTimeInterval interval = [self getTimeRuning];
-//    interval = 0;
+//    interval = 1;
     glm::mat4 model         = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
     glm::mat4 view          = glm::mat4(1.0f);
     glm::mat4 projection    = glm::mat4(1.0f);
-    //将其绕着x轴旋转，使它看起来像放在地上一样  最后一个参数决定绕x y z轴旋转 这里x：0.5f代表
+    //将其绕着x轴旋转，使它看起来像放在地上一样  最后一个参数决定绕x y z轴旋转 这里x：0.5f代表 一般不是1吗？
     model = glm::rotate(model, (float)interval, glm::vec3(0.5f, 1.0f, 0.0f));
     // 注意，我们将矩阵向我们要进行移动场景的反方向移动。这里向z轴移动，负数代表远离屏幕的效果
     view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -4.0f));
@@ -178,6 +145,7 @@
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
@@ -188,8 +156,18 @@
     [self useProgram];
     [self handle3D];
     glBindVertexArrayOES(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, 18);
+    
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
-
+/*
+ glDepthMask(GL_TRUE);需注意，在绘制半透明物体时前，还需要利用glDepthMask(GL_FALSE)将深度缓冲区设置为只读形式，否则可能出现画面错误。为什么呢，因为画透明物体时，将使用混色，这时就不能继续使用深度模式，而是利用混色函数来进行混合。这一来，就可以使用混合函数绘制半透明物体了。
+ 
+ 5. 深度测试
+ 在默认情况是将需要绘制的新像素的z值与深度缓冲区中对应位置的z值进行比较，如果比深度缓存中的值小，那么用新像素的颜色值更新帧缓存中对应像素的颜色值。
+ 但是可以使用glDepthFunc(func)来对这种默认测试方式进行修改。其中参数func的值可以为GL_NEVER（没有处理）、GL_ALWAYS（处理所有）、GL_LESS（小于）、GL_LEQUAL（小于等于）、GL_EQUAL（等于）、GL_GEQUAL（大于等于）、GL_GREATER（大于）或GL_NOTEQUAL（不等于），其中默认值是GL_LESS。
+ 一般来将，使用glDepthFunc(GL_LEQUAL);来表达一般物体之间的遮挡关系
+ ---------------------
+ 原文：https://blog.csdn.net/u014587123/article/details/80334715
+ */
 @end

@@ -9,7 +9,6 @@
 #import "BaseOpenGlViewController.h"
 
 @interface BaseOpenGlViewController ()
-@property (nonatomic , strong) EAGLContext* mContext;
 @property (nonatomic, assign) NSTimeInterval startTime;
 @end
 
@@ -43,6 +42,8 @@
     GLKView* view = (GLKView *)self.view; //storyboard记得添加
     view.context = self.mContext;
     view.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;  //颜色缓冲区格式
+    //此句与深度测试有关
+    view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     [EAGLContext setCurrentContext:self.mContext];
 }
 
@@ -119,6 +120,40 @@
  */
 - (NSTimeInterval)getTimeRuning {
     return [[NSDate date]timeIntervalSince1970] - self.startTime;
+}
+
+/**
+ 获取图片二进制 以及宽高
+ 
+ @param imgName 图片名
+ */
+- (GLubyte *)getDataFromImg:(NSString *)imgName width:(float *)width height:(float *)height {
+    // 1获取图片的CGImageRef
+    CGImageRef spriteImage = [UIImage imageNamed:imgName].CGImage;
+    if (!spriteImage) {
+        NSLog(@"Failed to load image %@", imgName);
+        exit(1);
+    }
+    
+    // 2 读取图片的大小
+    size_t width_s = CGImageGetWidth(spriteImage);
+    size_t height_s = CGImageGetHeight(spriteImage);
+    GLubyte * spriteData = (GLubyte *) calloc(width_s * height_s * 4, sizeof(GLubyte));////rgba共4个byte
+    
+    
+    CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width_s, height_s,
+                                                       8,//内存中像素的每个组件的位数.例如，对于32位像素格式和RGB 颜色空间，你应该将这个值设为8.
+                                                       width_s*4,//bitmap的每一行在内存所占的比特数
+                                                       CGImageGetColorSpace(spriteImage),//bitmap上下文使用的颜色空间。
+                                                       kCGImageAlphaPremultipliedLast);//指定bitmap是否包含alpha通道，像素中alpha通道的相对位置，像素组件是整形还是浮点型等信息的字符串。
+    
+    // 3在CGContextRef上绘图
+    CGContextDrawImage(spriteContext, CGRectMake(0, 0, width_s, height_s), spriteImage);
+    CGContextRelease(spriteContext);
+    *width = width_s;
+    *height = height_s;
+    
+    return spriteData;
 }
 
 @end
