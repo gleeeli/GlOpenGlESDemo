@@ -25,16 +25,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addGesture];
+    [self addPicGesture];
 }
 
 - (void)addGesture {
     self.pitch = 0.f;
     // yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right so we initially rotate a bit to the left
-    self.yaw = -90.0f;
+    self.yaw = -90.0f;//这里 上面那段英文没明白
     UIPanGestureRecognizer *panGest = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureAction:)];
     [self.view addGestureRecognizer:panGest];
 }
 
+- (void)addPicGesture {
+    UIPinchGestureRecognizer *pinchGest = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchGestureAction:)];
+    [self.view addGestureRecognizer:pinchGest];
+}
+
+//滑动手势
 - (void)panGestureAction:(UIPanGestureRecognizer *)panGest {
     
     CGPoint trans = [panGest translationInView:self.view];
@@ -63,6 +70,19 @@
     float z = sin(glm::radians(self.yaw)) * cos(glm::radians(self.pitch));
     NSLog(@"x：%f,y:%f,z:%f",x,y,z);
     [self setCameraFrontX:x y:y z:z];
+}
+
+//缩放手势
+- (void)pinchGestureAction:(UIPinchGestureRecognizer *)pinch {
+    //pinch.scale范围大概0-10
+    NSLog(@"缩放：%f",pinch.scale);
+    if (pinch.scale <1) {
+        self.fov += pinch.scale;
+    }else {
+        self.fov -= pinch.scale;
+    }
+    
+    
 }
 
 /*

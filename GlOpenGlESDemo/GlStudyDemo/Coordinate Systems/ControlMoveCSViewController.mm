@@ -35,6 +35,7 @@ glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
     self.isFirst = YES;
     self.lastFrame = 0;
     self.deltaFrame = 0;
+    self.fov = 45.0f;//初始视宽，越大能看到的东西就越多。（就像人拿望眼镜看到的东西大，但是不多，去掉望远镜看到的东西多）
     
     [self createHandShank];
 }
@@ -146,7 +147,7 @@ glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
     view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
     
     //声明一个投影矩阵：
-    projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
+    projection = glm::perspective(glm::radians(self.fov), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
     
     //绑定到shader GLSL
     unsigned int viewLoc  = glGetUniformLocation(shaderProgram, "view");
