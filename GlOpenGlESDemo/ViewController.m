@@ -18,6 +18,9 @@
 #import "CoordinateSystemsViewController.h"
 #import "CubeCSViewController.h"
 #import "MultiplerCubeViewController.h"
+#import "CameraCSViewController.h"
+#import "ControlMoveCSViewController.h"
+#import "MouseAngleCSViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -41,6 +44,9 @@
     [self.muarray addObject:@{@"name":@"3D Coordinate",@"desc":@"坐标系统 3D坐标转2D坐标"}];
     [self.muarray addObject:@{@"name":@"3D Cube",@"desc":@"坐标系统 3D立方体"}];
     [self.muarray addObject:@{@"name":@"Multiple 3D Cube",@"desc":@"坐标系统 多个3D立方体"}];
+    [self.muarray addObject:@{@"name":@"3D Camera System",@"desc":@"坐标系统 摄像头坐标的利用，实现整个场景旋转"}];
+    [self.muarray addObject:@{@"name":@"3D Control Move",@"desc":@"坐标系统 手动控制摄像头移动"}];
+    [self.muarray addObject:@{@"name":@"3D 欧拉角(Euler Angle)",@"desc":@"坐标系统 手指滑动控制视角或鼠标控制视角"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -99,7 +105,14 @@
     }
     else if ([title isEqualToString:@"Multiple 3D Cube"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"MultiplerCubeViewController"];
+    }else if ([title isEqualToString:@"3D Camera System"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"CameraCSViewController"];
+    }else if ([title isEqualToString:@"3D Control Move"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"ControlMoveCSViewController"];
+    }else if ([title isEqualToString:@"3D 欧拉角(Euler Angle)"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"MouseAngleCSViewController"];
     }
+    
     
     vc.title = desc;
     [self.navigationController pushViewController:vc animated:YES];

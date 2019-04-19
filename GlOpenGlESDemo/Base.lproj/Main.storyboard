@@ -211,6 +211,51 @@
             </objects>
             <point key="canvasLocation" x="5145" y="721"/>
         </scene>
+        <!--CameraCS View Controller-->
+        <scene sceneID="Xh3-Xb-Hdx">
+            <objects>
+                <viewController storyboardIdentifier="CameraCSViewController" id="brY-xh-LQO" customClass="CameraCSViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ted-u7-c2Y" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="LCo-iV-bxn"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hp0-qY-ssu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5774" y="721"/>
+        </scene>
+        <!--Control MoveCS View Controller-->
+        <scene sceneID="hDw-s7-hKE">
+            <objects>
+                <viewController storyboardIdentifier="ControlMoveCSViewController" id="nvQ-D6-qCf" customClass="ControlMoveCSViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="in5-NZ-Crm" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="PJw-NT-NjA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VB9-Ct-BrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6421" y="719"/>
+        </scene>
+        <!--Mouse AngleCS View Controller-->
+        <scene sceneID="Dvx-EJ-vB3">
+            <objects>
+                <viewController storyboardIdentifier="MouseAngleCSViewController" id="sXK-TE-G5M" customClass="MouseAngleCSViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="la5-RF-nqA" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="r54-pf-SO2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHE-aW-14X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7049" y="714"/>
+        </scene>
         <!--Rectangle View Controller-->
         <scene sceneID="C6q-l3-UDQ">
             <objects>

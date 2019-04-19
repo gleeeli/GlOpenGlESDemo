@@ -35,6 +35,9 @@
 		195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 195FC992225ED159008FF16B /* CoordinateSystemsViewController.mm */; };
 		195FC996225F0FDA008FF16B /* simple3D_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 195FC995225F0FDA008FF16B /* simple3D_shaderv.vsh */; };
 		19AB06FA2268780900E49661 /* MultiplerCubeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19AB06F92268780900E49661 /* MultiplerCubeViewController.mm */; };
+		19CF922422696F5B0077ADA4 /* CameraCSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19CF922322696F5B0077ADA4 /* CameraCSViewController.mm */; };
+		19CF922722697DE60077ADA4 /* ControlMoveCSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19CF922622697DE60077ADA4 /* ControlMoveCSViewController.mm */; };
+		19CF922A2269BF8D0077ADA4 /* MouseAngleCSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19CF92292269BF8D0077ADA4 /* MouseAngleCSViewController.mm */; };
 		19ED2A52226715610030361A /* BaseCoordinateSysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19ED2A51226715610030361A /* BaseCoordinateSysViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +88,12 @@
 		195FC998225F1940008FF16B /* CommHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommHeader.h; sourceTree = "<group>"; };
 		19AB06F82268780900E49661 /* MultiplerCubeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiplerCubeViewController.h; sourceTree = "<group>"; };
 		19AB06F92268780900E49661 /* MultiplerCubeViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MultiplerCubeViewController.mm; sourceTree = "<group>"; };
+		19CF922222696F5B0077ADA4 /* CameraCSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraCSViewController.h; sourceTree = "<group>"; };
+		19CF922322696F5B0077ADA4 /* CameraCSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraCSViewController.mm; sourceTree = "<group>"; };
+		19CF922522697DE60077ADA4 /* ControlMoveCSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlMoveCSViewController.h; sourceTree = "<group>"; };
+		19CF922622697DE60077ADA4 /* ControlMoveCSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ControlMoveCSViewController.mm; sourceTree = "<group>"; };
+		19CF92282269BF8D0077ADA4 /* MouseAngleCSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MouseAngleCSViewController.h; sourceTree = "<group>"; };
+		19CF92292269BF8D0077ADA4 /* MouseAngleCSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MouseAngleCSViewController.mm; sourceTree = "<group>"; };
 		19ED2A50226715610030361A /* BaseCoordinateSysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCoordinateSysViewController.h; sourceTree = "<group>"; };
 		19ED2A51226715610030361A /* BaseCoordinateSysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCoordinateSysViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +246,12 @@
 				195FC994225F0F7C008FF16B /* Shader */,
 				19AB06F82268780900E49661 /* MultiplerCubeViewController.h */,
 				19AB06F92268780900E49661 /* MultiplerCubeViewController.mm */,
+				19CF922222696F5B0077ADA4 /* CameraCSViewController.h */,
+				19CF922322696F5B0077ADA4 /* CameraCSViewController.mm */,
+				19CF922522697DE60077ADA4 /* ControlMoveCSViewController.h */,
+				19CF922622697DE60077ADA4 /* ControlMoveCSViewController.mm */,
+				19CF92282269BF8D0077ADA4 /* MouseAngleCSViewController.h */,
+				19CF92292269BF8D0077ADA4 /* MouseAngleCSViewController.mm */,
 			);
 			path = "Coordinate Systems";
 			sourceTree = "<group>";
@@ -337,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19CF922A2269BF8D0077ADA4 /* MouseAngleCSViewController.mm in Sources */,
 				195583CF222CAD4E00E6F6CB /* RectangleViewController.m in Sources */,
 				195583CE222CAD4E00E6F6CB /* OPGlTriangleViewController.m in Sources */,
 				19AB06FA2268780900E49661 /* MultiplerCubeViewController.mm in Sources */,
@@ -352,8 +368,10 @@
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
 				195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */,
+				19CF922422696F5B0077ADA4 /* CameraCSViewController.mm in Sources */,
 				19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */,
 				195583D5222CD44B00E6F6CB /* GlSLUniformViewController.m in Sources */,
+				19CF922722697DE60077ADA4 /* ControlMoveCSViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
