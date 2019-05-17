@@ -21,6 +21,7 @@
 #import "CameraCSViewController.h"
 #import "ControlMoveCSViewController.h"
 #import "MouseAngleCSViewController.h"
+#import "LightColorsViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -47,10 +48,16 @@
     [self.muarray addObject:@{@"name":@"3D Camera System",@"desc":@"坐标系统 摄像头坐标的利用，实现整个场景旋转"}];
     [self.muarray addObject:@{@"name":@"3D Control Move",@"desc":@"坐标系统 手动控制摄像头移动"}];
     [self.muarray addObject:@{@"name":@"3D 欧拉角(Euler Angle)",@"desc":@"坐标系统 手指滑动控制视角或鼠标控制视角"}];
+    [self.muarray addObject:@{@"name":@"光照 颜色",@"desc":@"光照呈现不同的立体颜色"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
     self.tableview.rowHeight = UITableViewAutomaticDimension;
+    if (@available(iOS 11.0, *)) {
+        self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//UIScrollView也适用
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -111,9 +118,10 @@
         vc = [storyboard instantiateViewControllerWithIdentifier:@"ControlMoveCSViewController"];
     }else if ([title isEqualToString:@"3D 欧拉角(Euler Angle)"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"MouseAngleCSViewController"];
+    }else if ([title isEqualToString:@"光照 颜色"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"LightColorsViewController"];
     }
-    
-    
+
     vc.title = desc;
     [self.navigationController pushViewController:vc animated:YES];
 }

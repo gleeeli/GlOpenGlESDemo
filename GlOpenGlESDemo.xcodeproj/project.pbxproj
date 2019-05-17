@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1912179822603AAD00DBFA33 /* CubeCSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1912179722603AAD00DBFA33 /* CubeCSViewController.mm */; };
+		19129923228D37D1007B6F78 /* LightColorsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19129922228D37D1007B6F78 /* LightColorsViewController.mm */; };
+		19129928228D3D66007B6F78 /* LightColors_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 19129926228D3D66007B6F78 /* LightColors_shaderf.fsh */; };
+		19129929228D3D66007B6F78 /* LightColors_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 19129927228D3D66007B6F78 /* LightColors_shaderv.vsh */; };
+		1912992B228D5F71007B6F78 /* LightColors_light source_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1912992A228D5F71007B6F78 /* LightColors_light source_shaderf.fsh */; };
 		1912DB61225F3EE300D05EC2 /* simple3D_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1912DB60225F3EE300D05EC2 /* simple3D_shaderf.fsh */; };
 		193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B57FC21475A4C00E40425 /* AppDelegate.m */; };
 		193B580021475A4C00E40425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B57FF21475A4C00E40425 /* ViewController.m */; };
@@ -18,6 +22,10 @@
 		193B58192147B34C00E40425 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B58182147B34C00E40425 /* BaseViewController.m */; };
 		193B581C2147C6B900E40425 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 193B581A2147C6B900E40425 /* shaderf.fsh */; };
 		193B581D2147C6B900E40425 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 193B581B2147C6B900E40425 /* shaderv.vsh */; };
+		193E5329228E3AC7009C913F /* CommViewCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 193E5328228E3AC7009C913F /* CommViewCode.m */; };
+		193E532C228E3B91009C913F /* CommCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 193E532B228E3B91009C913F /* CommCamera.mm */; };
+		193E5331228E5B40009C913F /* CommShader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 193E5330228E5B40009C913F /* CommShader.mm */; };
+		193E5334228E5E29009C913F /* BaseOpenGl3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193E5333228E5E29009C913F /* BaseOpenGl3DViewController.m */; };
 		194008762230F18A0081EC6F /* transform_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 194008752230F18A0081EC6F /* transform_shaderv.vsh */; };
 		194487AA222E116900A5A1E3 /* TwoTextureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194487A9222E116900A5A1E3 /* TwoTextureViewController.m */; };
 		194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 194487AB222E11FF00A5A1E3 /* two_texture_shaderf.fsh */; };
@@ -44,6 +52,11 @@
 /* Begin PBXFileReference section */
 		1912179622603AAD00DBFA33 /* CubeCSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeCSViewController.h; sourceTree = "<group>"; };
 		1912179722603AAD00DBFA33 /* CubeCSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CubeCSViewController.mm; sourceTree = "<group>"; };
+		19129921228D37D1007B6F78 /* LightColorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightColorsViewController.h; sourceTree = "<group>"; };
+		19129922228D37D1007B6F78 /* LightColorsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LightColorsViewController.mm; sourceTree = "<group>"; };
+		19129926228D3D66007B6F78 /* LightColors_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightColors_shaderf.fsh; sourceTree = "<group>"; };
+		19129927228D3D66007B6F78 /* LightColors_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightColors_shaderv.vsh; sourceTree = "<group>"; };
+		1912992A228D5F71007B6F78 /* LightColors_light source_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = "LightColors_light source_shaderf.fsh"; sourceTree = "<group>"; };
 		1912DB60225F3EE300D05EC2 /* simple3D_shaderf.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simple3D_shaderf.fsh; sourceTree = "<group>"; };
 		193B57F821475A4C00E40425 /* GlOpenGlESDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlOpenGlESDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		193B57FB21475A4C00E40425 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,6 +72,14 @@
 		193B58182147B34C00E40425 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		193B581A2147C6B900E40425 /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderf.fsh; sourceTree = "<group>"; };
 		193B581B2147C6B900E40425 /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderv.vsh; sourceTree = "<group>"; };
+		193E5327228E3AC7009C913F /* CommViewCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommViewCode.h; sourceTree = "<group>"; };
+		193E5328228E3AC7009C913F /* CommViewCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommViewCode.m; sourceTree = "<group>"; };
+		193E532A228E3B91009C913F /* CommCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommCamera.h; sourceTree = "<group>"; };
+		193E532B228E3B91009C913F /* CommCamera.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CommCamera.mm; sourceTree = "<group>"; };
+		193E532F228E5B40009C913F /* CommShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommShader.h; sourceTree = "<group>"; };
+		193E5330228E5B40009C913F /* CommShader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CommShader.mm; sourceTree = "<group>"; };
+		193E5332228E5E29009C913F /* BaseOpenGl3DViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseOpenGl3DViewController.h; sourceTree = "<group>"; };
+		193E5333228E5E29009C913F /* BaseOpenGl3DViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseOpenGl3DViewController.m; sourceTree = "<group>"; };
 		194008752230F18A0081EC6F /* transform_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = transform_shaderv.vsh; sourceTree = "<group>"; };
 		194487A8222E116900A5A1E3 /* TwoTextureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoTextureViewController.h; sourceTree = "<group>"; };
 		194487A9222E116900A5A1E3 /* TwoTextureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoTextureViewController.m; sourceTree = "<group>"; };
@@ -109,6 +130,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19129920228D36F7007B6F78 /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				19129924228D37DC007B6F78 /* LightColors */,
+			);
+			path = Light;
+			sourceTree = "<group>";
+		};
+		19129924228D37DC007B6F78 /* LightColors */ = {
+			isa = PBXGroup;
+			children = (
+				19129925228D3D2C007B6F78 /* Shader */,
+				19129921228D37D1007B6F78 /* LightColorsViewController.h */,
+				19129922228D37D1007B6F78 /* LightColorsViewController.mm */,
+			);
+			path = LightColors;
+			sourceTree = "<group>";
+		};
+		19129925228D3D2C007B6F78 /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				1912992A228D5F71007B6F78 /* LightColors_light source_shaderf.fsh */,
+				19129926228D3D66007B6F78 /* LightColors_shaderf.fsh */,
+				19129927228D3D66007B6F78 /* LightColors_shaderv.vsh */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
 		193B57EF21475A4C00E40425 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +223,7 @@
 		195583C9222CAD3200E6F6CB /* GlStudyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				19129920228D36F7007B6F78 /* Light */,
 				195FC990225ED038008FF16B /* Coordinate Systems */,
 				19574443222F9D4300AE4383 /* Transform */,
 				195583DA222D09FD00E6F6CB /* Texture */,
@@ -184,6 +234,8 @@
 				195583CB222CAD4E00E6F6CB /* RectangleViewController.m */,
 				195583DE222D1B5F00E6F6CB /* BaseOpenGlViewController.h */,
 				195583DF222D1B5F00E6F6CB /* BaseOpenGlViewController.m */,
+				193E5332228E5E29009C913F /* BaseOpenGl3DViewController.h */,
+				193E5333228E5E29009C913F /* BaseOpenGl3DViewController.m */,
 			);
 			path = GlStudyDemo;
 			sourceTree = "<group>";
@@ -269,6 +321,12 @@
 			isa = PBXGroup;
 			children = (
 				195FC998225F1940008FF16B /* CommHeader.h */,
+				193E5327228E3AC7009C913F /* CommViewCode.h */,
+				193E5328228E3AC7009C913F /* CommViewCode.m */,
+				193E532A228E3B91009C913F /* CommCamera.h */,
+				193E532B228E3B91009C913F /* CommCamera.mm */,
+				193E532F228E5B40009C913F /* CommShader.h */,
+				193E5330228E5B40009C913F /* CommShader.mm */,
 			);
 			path = Comm;
 			sourceTree = "<group>";
@@ -334,12 +392,15 @@
 				194487AE222E127E00A5A1E3 /* two_texture_shaderv.vsh in Resources */,
 				193B580821475A4D00E40425 /* LaunchScreen.storyboard in Resources */,
 				195FC996225F0FDA008FF16B /* simple3D_shaderv.vsh in Resources */,
+				19129929228D3D66007B6F78 /* LightColors_shaderv.vsh in Resources */,
 				195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */,
+				19129928228D3D66007B6F78 /* LightColors_shaderf.fsh in Resources */,
 				193B580521475A4D00E40425 /* Assets.xcassets in Resources */,
 				194008762230F18A0081EC6F /* transform_shaderv.vsh in Resources */,
 				194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */,
 				1912DB61225F3EE300D05EC2 /* simple3D_shaderf.fsh in Resources */,
 				193B580321475A4C00E40425 /* Main.storyboard in Resources */,
+				1912992B228D5F71007B6F78 /* LightColors_light source_shaderf.fsh in Resources */,
 				193B581C2147C6B900E40425 /* shaderf.fsh in Resources */,
 				195583E4222D1BE400E6F6CB /* texture_shaderv.vsh in Resources */,
 			);
@@ -355,19 +416,24 @@
 				19CF922A2269BF8D0077ADA4 /* MouseAngleCSViewController.mm in Sources */,
 				195583CF222CAD4E00E6F6CB /* RectangleViewController.m in Sources */,
 				195583CE222CAD4E00E6F6CB /* OPGlTriangleViewController.m in Sources */,
+				193E5334228E5E29009C913F /* BaseOpenGl3DViewController.m in Sources */,
+				19129923228D37D1007B6F78 /* LightColorsViewController.mm in Sources */,
 				19AB06FA2268780900E49661 /* MultiplerCubeViewController.mm in Sources */,
 				195583DD222D0A3E00E6F6CB /* TextureViewController.m in Sources */,
 				195583D2222CBA7A00E6F6CB /* GLSLViewController.m in Sources */,
 				193B580021475A4C00E40425 /* ViewController.m in Sources */,
 				195583D9222CFD5500E6F6CB /* GLSLColorVertexViewController.m in Sources */,
 				193B58192147B34C00E40425 /* BaseViewController.m in Sources */,
+				193E5331228E5B40009C913F /* CommShader.mm in Sources */,
 				19ED2A52226715610030361A /* BaseCoordinateSysViewController.m in Sources */,
 				194487AA222E116900A5A1E3 /* TwoTextureViewController.m in Sources */,
 				1912179822603AAD00DBFA33 /* CubeCSViewController.mm in Sources */,
 				195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
+				193E5329228E3AC7009C913F /* CommViewCode.m in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
 				195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */,
+				193E532C228E3B91009C913F /* CommCamera.mm in Sources */,
 				19CF922422696F5B0077ADA4 /* CameraCSViewController.mm in Sources */,
 				19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */,
 				195583D5222CD44B00E6F6CB /* GlSLUniformViewController.m in Sources */,
@@ -514,6 +580,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.9.3/include;
 				INFOPLIST_FILE = GlOpenGlESDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -531,6 +598,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.9.3/include;
 				INFOPLIST_FILE = GlOpenGlESDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
