@@ -148,8 +148,20 @@
     glUseProgram(_shaderProgram);
 }
 
+- (void)setVec2:(std::string)name vec2:(glm::vec3)vec2 {
+    glUniform2fv(glGetUniformLocation(_shaderProgram, name.c_str()), 1, &vec2[0]);
+}
+
+- (void)setVec3:(std::string)name vec3:(glm::vec3)vec3{
+    glUniform3fv(glGetUniformLocation(_shaderProgram, name.c_str()), 1, &vec3[0]);
+}
+
 - (void)setVec3:(std::string)name x:(float)x y:(float)y z:(float)z {
     glUniform3f(glGetUniformLocation(_shaderProgram, name.c_str()), x, y, z);
+}
+
+- (void)setMat2:(std::string  )name mat4:(glm::mat2 )mat2 {
+   glUniformMatrix2fv(glGetUniformLocation(_shaderProgram, name.c_str()), 1, GL_FALSE, &mat2[0][0]);;
 }
 
 - (void)setMat4:(std::string  )name mat4:(glm::mat4 )mat4 {

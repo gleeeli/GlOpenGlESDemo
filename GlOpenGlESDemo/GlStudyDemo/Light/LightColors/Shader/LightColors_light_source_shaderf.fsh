@@ -1,7 +1,7 @@
 
 //varying lowp vec4 FragColor;
-uniform lowp vec3 objectColor;
-uniform lowp vec3 lightColor;
+//uniform lowp vec3 objectColor;
+//uniform lowp vec3 lightColor;
 
 void main()
 {
