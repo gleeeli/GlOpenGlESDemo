@@ -12,7 +12,7 @@ void main()
 //    gl_FragColor = vec4(lightColor * objectColor, 1.0);
     
     //第二种：添加环境光照,表现效果为很黑暗
-    lowp float ambientStrength = 0.8;
+    lowp float ambientStrength = 0.1;
     lowp vec3 ambient = ambientStrength * lightColor;
     
 //    lowp vec3 result = ambient * objectColor;//环境光乘以物体颜色

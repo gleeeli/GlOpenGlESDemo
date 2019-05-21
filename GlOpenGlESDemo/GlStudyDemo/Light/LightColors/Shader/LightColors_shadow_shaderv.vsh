@@ -10,7 +10,8 @@ varying lowp vec3 FragPos;//输出变量 世界空间位置
 
 void main()
 {
-    gl_Position = projection * view * model * vec4(aPos, 1.0);
+    
     FragPos = vec3(model * vec4(aPos, 1.0));//变换到世界空间坐标
     Normal = aNormal;
+    gl_Position = projection * view  * vec4(FragPos, 1.0);
 }

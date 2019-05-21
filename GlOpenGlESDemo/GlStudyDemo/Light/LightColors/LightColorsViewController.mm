@@ -87,7 +87,7 @@ glm::vec3 lightPos(0.3f, 1.2f, 2.0f);
     
     //法向量，垂直于每个面
     GLuint normal = glGetAttribLocation(lightShader.shaderProgram, "aNormal");
-    glVertexAttribPointer(normal, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)3);
+    glVertexAttribPointer(normal, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(normal);
 }
 
