@@ -24,12 +24,14 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) float zoom;
 
 - (instancetype)initWithBackView:(UIView *)view;
+- (NSTimeInterval)getTimeRuning;
 
 //带有C++类型的方法声明
 #ifdef __cplusplus
 - (instancetype)initWithBackView:(UIView *)view cameraPos:(glm::vec3)cameraPos;
 - (instancetype)initWithBackView:(UIView *)view cameraPos:(glm::vec3)cameraPos cameraUp:(glm::vec3)cameraUp yaw:(float)yaw pitch:(float)pitch;
 - (glm::mat4)GetViewMatrix;
+- (glm::vec3)getCameraPosition;
 #endif
 
 /*

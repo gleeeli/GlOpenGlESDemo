@@ -291,4 +291,8 @@
     front.z = -1;
     cameraFront = glm::normalize(front);
 }
+
+- (glm::vec3)getCameraPosition {
+    return cameraPosition;
+}
 @end

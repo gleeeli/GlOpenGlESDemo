@@ -21,7 +21,7 @@
 #import "CommVertices.h"
 
 // lighting 灯的位置
-glm::vec3 lightPos(0.3f, 1.2f, 2.0f);
+glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
 
 @implementation LightColorsViewController
 {
@@ -106,6 +106,16 @@ glm::vec3 lightPos(0.3f, 1.2f, 2.0f);
     glEnableVertexAttribArray(position);
 }
 
+/**
+ 移动灯
+ */
+-(void)moveLambPosition {
+    NSTimeInterval runTime = [camera getTimeRuning];
+    float radius = 1.3f;
+    lightPos.x = radius * cos(runTime);
+    lightPos.y = sin(runTime) * radius;
+}
+
 - (void)handleCube3D {
     [lightShader useProgram];
     //物体颜色
@@ -115,6 +125,8 @@ glm::vec3 lightPos(0.3f, 1.2f, 2.0f);
     
     //设置灯位置 用来求漫反射的
     [lightShader setVec3:"lightPos" vec3:lightPos];
+    
+    [lightShader setVec3:"viewPos" vec3:[camera getCameraPosition]];
     
     glm::mat4 model         = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
     glm::mat4 view          = glm::mat4(1.0f);
@@ -129,7 +141,7 @@ glm::vec3 lightPos(0.3f, 1.2f, 2.0f);
     [lightShader setMat4:"view" mat4:view];
     
     //旋转一下 不然太正了
-    model = glm::rotate(model, 1.f, glm::vec3(0.5f, 1.0f, 0.0f));
+    model = glm::rotate(model, 0.7f, glm::vec3(1.0f, 0.0f, 0.0f));
     [lightShader setMat4:"model" mat4:model];
     
     glBindVertexArrayOES(cubeVAO);
@@ -160,7 +172,7 @@ glm::vec3 lightPos(0.3f, 1.2f, 2.0f);
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     //深度测试清除缓存
     glClear(GL_COLOR_BUFFER_BIT  | GL_DEPTH_BUFFER_BIT);
-    
+    [self moveLambPosition];
     [self handleCube3D];
 }
 
@@ -169,4 +181,9 @@ glm::vec3 lightPos(0.3f, 1.2f, 2.0f);
     glDeleteVertexArraysOES(1, &lampVAO);
     glDeleteBuffers(1, &VBO);
 }
+
+/*
+ 法线矩阵(Normal Matrix) 为了将法向量也变换到世界坐标，但是不等比缩放的时候会破坏法向量，导致不垂直，这时候就需要法线矩阵
+ 在顶点着色器中，我们可以使用inverse和transpose函数自己生成这个法线矩阵，这两个函数对所有类型矩阵都有效。
+ */
 @end
