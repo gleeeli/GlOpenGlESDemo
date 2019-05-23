@@ -22,6 +22,7 @@
 #import "ControlMoveCSViewController.h"
 #import "MouseAngleCSViewController.h"
 #import "LightColorsViewController.h"
+#import "LightColorsMaterialViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -48,7 +49,8 @@
     [self.muarray addObject:@{@"name":@"3D Camera System",@"desc":@"坐标系统 摄像头坐标的利用，实现整个场景旋转"}];
     [self.muarray addObject:@{@"name":@"3D Control Move",@"desc":@"坐标系统 手动控制摄像头移动"}];
     [self.muarray addObject:@{@"name":@"3D 欧拉角(Euler Angle)",@"desc":@"坐标系统 手指滑动控制视角或鼠标控制视角"}];
-    [self.muarray addObject:@{@"name":@"光照 颜色",@"desc":@"光照呈现不同的立体颜色"}];
+    [self.muarray addObject:@{@"name":@"基础光照 颜色",@"desc":@"光照呈现不同的立体颜色"}];
+    [self.muarray addObject:@{@"name":@"基础光照 材质",@"desc":@"光对不同材质物体影响直观表现"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -70,16 +72,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-    NSDictionary *dict = self.muarray[indexPath.row];
+    NSDictionary *dict = [self getDictWithRow:indexPath];
     NSString *title = dict[@"name"];
     NSString *desc = dict[@"desc"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%zd.%@：%@",(indexPath.row + 1),title,desc];
+    cell.textLabel.text = [NSString stringWithFormat:@"%zd.%@：%@",([self.muarray count] - indexPath.row),title,desc];
     cell.textLabel.numberOfLines = 0;
     return cell;
 }
+    
+/**
+ 倒序
+ */
+- (NSDictionary *)getDictWithRow:(NSIndexPath *)indexPath {
+    NSInteger row = [self.muarray count] - indexPath.row - 1;
+    NSDictionary *dict = self.muarray[row];
+    return dict;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dict = self.muarray[indexPath.row];
+    NSDictionary *dict = [self getDictWithRow:indexPath];
     NSString *title = dict[@"name"];
     NSString *desc = dict[@"desc"];
     UIViewController *vc;
@@ -118,8 +129,10 @@
         vc = [storyboard instantiateViewControllerWithIdentifier:@"ControlMoveCSViewController"];
     }else if ([title isEqualToString:@"3D 欧拉角(Euler Angle)"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"MouseAngleCSViewController"];
-    }else if ([title isEqualToString:@"光照 颜色"]) {
+    }else if ([title isEqualToString:@"基础光照 颜色"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"LightColorsViewController"];
+    }else if ([title isEqualToString:@"基础光照 材质"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"LightColorsMaterialViewController"];
     }
 
     vc.title = desc;

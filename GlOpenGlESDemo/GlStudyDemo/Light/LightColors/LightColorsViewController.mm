@@ -15,10 +15,10 @@
 #include <string>
 #include <OpenGLES/ES2/glext.h>
 #import "CommCamera.h"
-#import "CommShader.h"
+
 #include <OpenGLES/ES2/glext.h>
 #import "CommVertices.h"
-#import "CommVertices.h"
+#import "CommShader.h"
 
 // lighting 灯的位置
 glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
@@ -29,7 +29,7 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
     unsigned int cubeVAO;
     unsigned int lampVAO;
     CommCamera *camera;
-    CommShader *lightShader;
+//    CommShader *lightShader;
     CommShader *lamShader;
 }
 
@@ -44,14 +44,20 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
     lamShader = [[CommShader alloc] initWithvsFileName:@"LightColors_shaderv" fsFileName:@"LightColors_light_source_shaderf"];
      */
     
+    [self initShaderName];
+    
     //带环境光，漫反射的光源世界
-    lightShader = [[CommShader alloc] initWithvsFileName:@"LightColors_shadow_shaderv" fsFileName:@"LightColors_shadow_shaderf"];
+    self.lightShader = [[CommShader alloc] initWithvsFileName:@"LightColors_shadow_shaderv" fsFileName:self.lightFrageShaderName];
     lamShader = [[CommShader alloc] initWithvsFileName:@"LightColors_shaderv" fsFileName:@"LightColors_light_source_shaderf"];
     
     
     //手势 摄像头控制，此处设置摄像头的位置,注意不是物体坐标
     camera = [[CommCamera alloc] initWithBackView:self.view cameraPos:glm::vec3(0.0f, 0.8f, 4.0f)];
     [self handleVertex];
+}
+
+- (void)initShaderName {
+    self.lightFrageShaderName = @"LightColors_shadow_shaderf";
 }
 
 - (void)handleVertex {
@@ -81,12 +87,12 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
     glBindVertexArrayOES(cubeVAO);
     
     // cube position attribute
-    GLuint position = glGetAttribLocation(lightShader.shaderProgram, "aPos");
+    GLuint position = glGetAttribLocation(self.lightShader.shaderProgram, "aPos");
     glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(position);
     
     //法向量，垂直于每个面
-    GLuint normal = glGetAttribLocation(lightShader.shaderProgram, "aNormal");
+    GLuint normal = glGetAttribLocation(self.lightShader.shaderProgram, "aNormal");
     glVertexAttribPointer(normal, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(normal);
 }
@@ -110,23 +116,25 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
  移动灯
  */
 -(void)moveLambPosition {
-    NSTimeInterval runTime = [camera getTimeRuning];
+    NSTimeInterval runTime = [self getRunTime];
     float radius = 1.3f;
     lightPos.x = radius * cos(runTime);
     lightPos.y = sin(runTime) * radius;
 }
 
+- (NSTimeInterval)getRunTime {
+    return [camera getTimeRuning];
+}
+
+- (NSArray *)getLightPos {
+    return @[[NSNumber numberWithFloat:lightPos.x],[NSNumber numberWithFloat:lightPos.y],[NSNumber numberWithFloat:lightPos.z]];
+}
+
 - (void)handleCube3D {
-    [lightShader useProgram];
-    //物体颜色
-    [lightShader setVec3:"objectColor" x:1.0f y:0.5f z:0.31f];
-    //灯颜色
-    [lightShader setVec3:"lightColor" x:1.0f y:1.0f z:1.0f];
+    [self.lightShader useProgram];
     
-    //设置灯位置 用来求漫反射的
-    [lightShader setVec3:"lightPos" vec3:lightPos];
-    
-    [lightShader setVec3:"viewPos" vec3:[camera getCameraPosition]];
+    [self.lightShader setVec3:"viewPos" vec3:[camera getCameraPosition]];
+    [self setOtherLightShader];
     
     glm::mat4 model         = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
     glm::mat4 view          = glm::mat4(1.0f);
@@ -137,18 +145,28 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
     //声明一个投影矩阵：
     projection = glm::perspective(glm::radians(camera.zoom), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
     
-    [lightShader setMat4:"projection" mat4:projection];
-    [lightShader setMat4:"view" mat4:view];
+    [self.lightShader setMat4:"projection" mat4:projection];
+    [self.lightShader setMat4:"view" mat4:view];
     
     //旋转一下 不然太正了
     model = glm::rotate(model, 0.7f, glm::vec3(1.0f, 0.0f, 0.0f));
-    [lightShader setMat4:"model" mat4:model];
+    [self.lightShader setMat4:"model" mat4:model];
     
     glBindVertexArrayOES(cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
     
     //绘制灯立方体对象
     [self handleLame3DWithView:view projection:projection];
+}
+
+- (void)setOtherLightShader {
+    //物体颜色
+    [self.lightShader setVec3:"objectColor" x:1.0f y:0.5f z:0.31f];
+    //灯颜色
+    [self.lightShader setVec3:"lightColor" x:1.0f y:1.0f z:1.0f];
+    
+    //设置灯位置 用来求漫反射的
+    [self.lightShader setVec3:"lightPos" vec3:lightPos];
 }
 
 - (void)handleLame3DWithView:(glm::mat4)view projection:(glm::mat4)projection {

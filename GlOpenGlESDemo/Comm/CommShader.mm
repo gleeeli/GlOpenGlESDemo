@@ -147,6 +147,10 @@
 - (void)useProgram {
     glUseProgram(_shaderProgram);
 }
+    
+- (void)setFload:(std::string)name floatv:(float)floatv {
+    glUniform1f(glGetUniformLocation(_shaderProgram, name.c_str()), floatv);
+}
 
 - (void)setVec2:(std::string)name vec2:(glm::vec3)vec2 {
     glUniform2fv(glGetUniformLocation(_shaderProgram, name.c_str()), 1, &vec2[0]);

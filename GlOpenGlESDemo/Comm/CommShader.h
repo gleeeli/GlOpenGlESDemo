@@ -18,6 +18,7 @@
 
 //带有C++类型的方法声明
 #ifdef __cplusplus
+- (void)setFload:(std::string)name floatv:(float)floatv;
 - (void)setVec2:(std::string)name vec2:(glm::vec3)vec2;
 - (void)setVec3:(std::string)name vec3:(glm::vec3)vec3;
 - (void)setVec3:(std::string)name x:(float)x y:(float)y z:(float)z;
