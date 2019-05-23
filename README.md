@@ -12,3 +12,4 @@ Opgl分阶段练习，并做成demo。中文注释也比较多，需要学习的
 ![image](https://github.com/gleeeli/GlOpenGlESDemo/blob/master/%E6%89%8B%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%90%91%E5%89%8D%E5%90%91%E5%90%8E%E7%AD%89%E6%95%88%E6%9E%9C%E5%9B%BE.gif)
 
 
+![image](https://github.com/gleeeli/GlOpenGlESDemo/blob/master/%E5%9F%BA%E7%A1%80%E5%85%89%E7%85%A7%E6%95%88%E6%9E%9C.png)
