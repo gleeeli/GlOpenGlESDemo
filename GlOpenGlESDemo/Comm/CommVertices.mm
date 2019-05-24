@@ -137,7 +137,7 @@ float* getCubeAndNoramlAndMapVertices(void) {
         0.5f, -0.5f, 0.0f,   0.0f,  0.0f, 1.0f,  1.0f,0.0f,// bottom right
         -0.5f, -0.5f, 0.0f,  0.0f,  0.0f, 1.0f,  0.0f,0.0f,// bottom left
         -0.5f, -0.5f, 0.0f,  0.0f,  0.0f, 1.0f,  0.0f,0.0f,// bottom left
-        -0.5f,  0.5f, 0.0f,  0.0f,  0.0f, 1.0f,  1.0f,0.0f,// top left
+        -0.5f,  0.5f, 0.0f,  0.0f,  0.0f, 1.0f,  0.0f,1.0f,// top left
         0.5f,  0.5f, 0.0f,   0.0f,  0.0f, 1.0f,  1.0f,1.0f,// top right
         
         //后平面
@@ -145,7 +145,7 @@ float* getCubeAndNoramlAndMapVertices(void) {
         0.5f, -0.5f, -0.5f,   0.0f,  0.0f, -1.0f,  1.0f,0.0f,// bottom right
         -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,0.0f,// bottom left
         -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,0.0f,// bottom left
-        -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,0.0f,// top left
+        -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,1.0f,// top left
         0.5f,  0.5f, -0.5f,   0.0f,  0.0f, -1.0f,  1.0f,1.0f,// top right
         
         // x轴上的两个平行面
@@ -154,7 +154,7 @@ float* getCubeAndNoramlAndMapVertices(void) {
         0.5f, -0.5f, -0.5f,  1.0f,  0.0f, 0.0f,  1.0f,0.0f,// bottom right
         0.5f, -0.5f, 0.0f,   1.0f,  0.0f, 0.0f,  0.0f,0.0f,// bottom left
         0.5f, -0.5f, 0.0f,   1.0f,  0.0f, 0.0f,  0.0f,0.0f,// bottom left
-        0.5f,  0.5f, 0.0f,   1.0f,  0.0f, 0.0f,  1.0f,0.0f,// top left
+        0.5f,  0.5f, 0.0f,   1.0f,  0.0f, 0.0f,  0.0f,0.0f,// top left
         0.5f,  0.5f, -0.5f,  1.0f,  0.0f, 0.0f,  1.0f,1.0f,// top right
         
         //左平面 留个缺口，不留缺口可将y轴的0.0f改为-0.5f
@@ -162,7 +162,7 @@ float* getCubeAndNoramlAndMapVertices(void) {
         -0.5f, 0.0f, -0.5f,   -1.0f,  0.0f, 0.0f,  1.0f,0.0f,// bottom right
         -0.5f, 0.0f, 0.0f,    -1.0f,  0.0f, 0.0f,  0.0f,0.0f,// bottom left
         -0.5f, 0.0f, 0.0f,    -1.0f,  0.0f, 0.0f,  0.0f,0.0f,// bottom left
-        -0.5f,  0.5f, 0.0f,   -1.0f,  0.0f, 0.0f,  1.0f,0.0f,// top left
+        -0.5f,  0.5f, 0.0f,   -1.0f,  0.0f, 0.0f,  0.0f,1.0f,// top left
         -0.5f,  0.5f, -0.5f,  -1.0f,  0.0f, 0.0f,  1.0f,1.0f,// top right
         
         // y轴上的两个平行面
@@ -171,7 +171,7 @@ float* getCubeAndNoramlAndMapVertices(void) {
         0.5f, 0.5f, 0.0f,    0.0f,  1.0f, 0.0f,  1.0f,0.0f,// bottom right
         -0.5f, 0.5f, 0.0f,   0.0f,  1.0f, 0.0f,  0.0f,0.0f,// bottom left
         -0.5f, 0.5f, 0.0f,   0.0f,  1.0f, 0.0f,  0.0f,0.0f,// bottom left
-        -0.5f,  0.5f, -0.5f, 0.0f,  1.0f, 0.0f,  1.0f,0.0f,// top left
+        -0.5f,  0.5f, -0.5f, 0.0f,  1.0f, 0.0f,  0.0f,1.0f,// top left
         0.5f,  0.5f, -0.5f,  0.0f,  1.0f, 0.0f,  1.0f,1.0f,// top right
         
         //下平面
@@ -179,7 +179,7 @@ float* getCubeAndNoramlAndMapVertices(void) {
         0.5f, -0.5f, 0.0f,    0.0f,  -1.0f, 0.0f,  1.0f,0.0f,// bottom right
         -0.5f, -0.5f, 0.0f,   0.0f,  -1.0f, 0.0f,  0.0f,0.0f,// bottom left
         -0.5f, -0.5f, 0.0f,   0.0f,  -1.0f, 0.0f,  0.0f,0.0f,// bottom left
-        -0.5f,  -0.5f, -0.5f, 0.0f,  -1.0f, 0.0f,  1.0f,0.0f,// top left
+        -0.5f,  -0.5f, -0.5f, 0.0f,  -1.0f, 0.0f,  0.0f,1.0f,// top left
         0.5f,  -0.5f, -0.5f,  0.0f,  -1.0f, 0.0f,  1.0f,1.0f,// top right
     };
     
