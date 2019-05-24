@@ -23,6 +23,7 @@
 #import "MouseAngleCSViewController.h"
 #import "LightColorsViewController.h"
 #import "LightColorsMaterialViewController.h"
+#import "DiffuseMapViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -51,6 +52,7 @@
     [self.muarray addObject:@{@"name":@"3D 欧拉角(Euler Angle)",@"desc":@"坐标系统 手指滑动控制视角或鼠标控制视角"}];
     [self.muarray addObject:@{@"name":@"基础光照 颜色",@"desc":@"光照呈现不同的立体颜色"}];
     [self.muarray addObject:@{@"name":@"基础光照 材质",@"desc":@"光对不同材质物体影响直观表现"}];
+    [self.muarray addObject:@{@"name":@"纹理贴图",@"desc":@"光对贴图物体的影响"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -133,6 +135,8 @@
         vc = [storyboard instantiateViewControllerWithIdentifier:@"LightColorsViewController"];
     }else if ([title isEqualToString:@"基础光照 材质"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"LightColorsMaterialViewController"];
+    }else if ([title isEqualToString:@"纹理贴图"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"DiffuseMapViewController"];
     }
 
     vc.title = desc;

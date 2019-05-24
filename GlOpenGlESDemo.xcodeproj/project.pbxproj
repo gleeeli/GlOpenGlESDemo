@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190B6EA92297BCDB0087703C /* DiffuseMapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 190B6EA82297BCDB0087703C /* DiffuseMapViewController.mm */; };
+		190B6EAC2297BD860087703C /* Diffuse_map_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 190B6EAB2297BD860087703C /* Diffuse_map_shaderf.fsh */; };
+		190B6EAE2297C1AC0087703C /* Diffuse_map_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 190B6EAD2297C1AC0087703C /* Diffuse_map_shaderv.vsh */; };
 		1912179822603AAD00DBFA33 /* CubeCSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1912179722603AAD00DBFA33 /* CubeCSViewController.mm */; };
 		19129923228D37D1007B6F78 /* LightColorsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19129922228D37D1007B6F78 /* LightColorsViewController.mm */; };
 		19129928228D3D66007B6F78 /* LightColors_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 19129926228D3D66007B6F78 /* LightColors_shaderf.fsh */; };
@@ -55,6 +58,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190B6EA72297BCDB0087703C /* DiffuseMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiffuseMapViewController.h; sourceTree = "<group>"; };
+		190B6EA82297BCDB0087703C /* DiffuseMapViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DiffuseMapViewController.mm; sourceTree = "<group>"; };
+		190B6EAB2297BD860087703C /* Diffuse_map_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Diffuse_map_shaderf.fsh; sourceTree = "<group>"; };
+		190B6EAD2297C1AC0087703C /* Diffuse_map_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Diffuse_map_shaderv.vsh; sourceTree = "<group>"; };
 		1912179622603AAD00DBFA33 /* CubeCSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeCSViewController.h; sourceTree = "<group>"; };
 		1912179722603AAD00DBFA33 /* CubeCSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CubeCSViewController.mm; sourceTree = "<group>"; };
 		19129921228D37D1007B6F78 /* LightColorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightColorsViewController.h; sourceTree = "<group>"; };
@@ -142,6 +149,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190B6EAA2297BD590087703C /* DiffuseMap */ = {
+			isa = PBXGroup;
+			children = (
+				190B6EAB2297BD860087703C /* Diffuse_map_shaderf.fsh */,
+				190B6EAD2297C1AC0087703C /* Diffuse_map_shaderv.vsh */,
+			);
+			path = DiffuseMap;
+			sourceTree = "<group>";
+		};
 		19129920228D36F7007B6F78 /* Light */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +174,8 @@
 				19129922228D37D1007B6F78 /* LightColorsViewController.mm */,
 				1951821222963D4E00A5D261 /* LightColorsMaterialViewController.h */,
 				1951821322963D4E00A5D261 /* LightColorsMaterialViewController.mm */,
+				190B6EA72297BCDB0087703C /* DiffuseMapViewController.h */,
+				190B6EA82297BCDB0087703C /* DiffuseMapViewController.mm */,
 			);
 			path = LightColors;
 			sourceTree = "<group>";
@@ -165,6 +183,7 @@
 		19129925228D3D2C007B6F78 /* Shader */ = {
 			isa = PBXGroup;
 			children = (
+				190B6EAA2297BD590087703C /* DiffuseMap */,
 				195182152296417D00A5D261 /* Material */,
 				199DA32C22928F8900B8D130 /* LightColors_shadow_shaderf.fsh */,
 				199DA32A22928E7A00B8D130 /* LightColors_shadow_shaderv.vsh */,
@@ -400,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				193B581D2147C6B900E40425 /* shaderv.vsh in Resources */,
+				190B6EAE2297C1AC0087703C /* Diffuse_map_shaderv.vsh in Resources */,
 				194487AE222E127E00A5A1E3 /* two_texture_shaderv.vsh in Resources */,
 				19518217229641AE00A5D261 /* LightColors_material_shaderf.fsh in Resources */,
 				193B580821475A4D00E40425 /* LaunchScreen.storyboard in Resources */,
@@ -411,6 +431,7 @@
 				193B580521475A4D00E40425 /* Assets.xcassets in Resources */,
 				199DA32B22928E7A00B8D130 /* LightColors_shadow_shaderv.vsh in Resources */,
 				194008762230F18A0081EC6F /* transform_shaderv.vsh in Resources */,
+				190B6EAC2297BD860087703C /* Diffuse_map_shaderf.fsh in Resources */,
 				194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */,
 				1912DB61225F3EE300D05EC2 /* simple3D_shaderf.fsh in Resources */,
 				193B580321475A4C00E40425 /* Main.storyboard in Resources */,
@@ -447,6 +468,7 @@
 				195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193E5329228E3AC7009C913F /* CommViewCode.m in Sources */,
+				190B6EA92297BCDB0087703C /* DiffuseMapViewController.mm in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
 				195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */,
 				193E532C228E3B91009C913F /* CommCamera.mm in Sources */,

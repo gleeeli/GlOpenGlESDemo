@@ -13,4 +13,6 @@
 float * getCubeVertices(void);
 //获取立方体和每个面的法向量
 float* getCubeAndNoramlVertices(void);
+//获取立方体和每个面的法向量 以及纹理贴图
+float* getCubeAndNoramlAndMapVertices(void);
 #endif /* CommVertices_h */

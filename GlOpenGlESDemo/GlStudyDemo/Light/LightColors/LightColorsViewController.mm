@@ -25,12 +25,12 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
 
 @implementation LightColorsViewController
 {
-    unsigned int VBO;
-    unsigned int cubeVAO;
-    unsigned int lampVAO;
+//    unsigned int VBO;
+//    unsigned int cubeVAO;
+//    unsigned int lampVAO;
     CommCamera *camera;
 //    CommShader *lightShader;
-    CommShader *lamShader;
+//    CommShader *lamShader;
 }
 
 
@@ -47,17 +47,18 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
     [self initShaderName];
     
     //带环境光，漫反射的光源世界
-    self.lightShader = [[CommShader alloc] initWithvsFileName:@"LightColors_shadow_shaderv" fsFileName:self.lightFrageShaderName];
-    lamShader = [[CommShader alloc] initWithvsFileName:@"LightColors_shaderv" fsFileName:@"LightColors_light_source_shaderf"];
+    self.lightShader = [[CommShader alloc] initWithvsFileName:self.lightVertexShaderName fsFileName:self.lightFrageShaderName];
+    self.lamShader = [[CommShader alloc] initWithvsFileName:@"LightColors_shaderv" fsFileName:@"LightColors_light_source_shaderf"];
     
     
     //手势 摄像头控制，此处设置摄像头的位置,注意不是物体坐标
-    camera = [[CommCamera alloc] initWithBackView:self.view cameraPos:glm::vec3(0.0f, 0.8f, 4.0f)];
+    camera = [[CommCamera alloc] initWithBackView:self.view cameraPos:glm::vec3(0.0f, 0.8f, 3.0f)];
     [self handleVertex];
 }
 
 - (void)initShaderName {
     self.lightFrageShaderName = @"LightColors_shadow_shaderf";
+    self.lightVertexShaderName = @"LightColors_shadow_shaderv";
 }
 
 - (void)handleVertex {
@@ -70,10 +71,7 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
         vertices[i] = tmp[i];
     }
     
-    glGenVertexArraysOES(1, &cubeVAO);
-    glGenBuffers(1, &VBO);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    [self handleVBOVAO];
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     
     //绑定立方体顶点
@@ -83,8 +81,16 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
     [self createlampVAO];
 }
 
+//VBO 不知道怎么提到外部初始化 暂时这样
+- (void)handleVBOVAO {
+    glGenVertexArraysOES(1, &_cubeVAO);
+    glGenBuffers(1, &_VBO);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, _VBO);
+}
+
 - (void)createCubeVAO {
-    glBindVertexArrayOES(cubeVAO);
+    glBindVertexArrayOES(_cubeVAO);
     
     // cube position attribute
     GLuint position = glGetAttribLocation(self.lightShader.shaderProgram, "aPos");
@@ -102,12 +108,12 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
  */
 - (void)createlampVAO {
     
-    glGenVertexArraysOES(1, &lampVAO);
-    glBindVertexArrayOES(lampVAO);
+    glGenVertexArraysOES(1, &_lampVAO);
+    glBindVertexArrayOES(_lampVAO);
     // 只需要绑定VBO不用再次设置VBO的数据，因为箱子的VBO数据中已经包含了正确的立方体顶点数据
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, _VBO);
     // 设置灯立方体的顶点属性（对我们的灯来说仅仅只有位置数据）
-    GLuint position = glGetAttribLocation(lamShader.shaderProgram, "aPos");
+    GLuint position = glGetAttribLocation(self.lamShader.shaderProgram, "aPos");
     glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(position);
 }
@@ -152,7 +158,7 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
     model = glm::rotate(model, 0.7f, glm::vec3(1.0f, 0.0f, 0.0f));
     [self.lightShader setMat4:"model" mat4:model];
     
-    glBindVertexArrayOES(cubeVAO);
+    glBindVertexArrayOES(_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
     
     //绘制灯立方体对象
@@ -170,17 +176,17 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
 }
 
 - (void)handleLame3DWithView:(glm::mat4)view projection:(glm::mat4)projection {
-    [lamShader useProgram];
-    [lamShader setMat4:"projection" mat4:projection];
-    [lamShader setMat4:"view" mat4:view];
+    [self.lamShader useProgram];
+    [self.lamShader setMat4:"projection" mat4:projection];
+    [self.lamShader setMat4:"view" mat4:view];
     
     glm::mat4 model         = glm::mat4(1.0f);
     //移动到指定位置
     model = glm::translate(model, lightPos);
     model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
-    [lamShader setMat4:"model" mat4:model];
+    [self.lamShader setMat4:"model" mat4:model];
     
-    glBindVertexArrayOES(lampVAO);
+    glBindVertexArrayOES(_lampVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
@@ -190,14 +196,19 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     //深度测试清除缓存
     glClear(GL_COLOR_BUFFER_BIT  | GL_DEPTH_BUFFER_BIT);
+    [self drawHandleOther];
     [self moveLambPosition];
     [self handleCube3D];
 }
 
+- (void)drawHandleOther {
+    
+}
+
 - (void)dealloc {
-    glDeleteVertexArraysOES(1, &cubeVAO);
-    glDeleteVertexArraysOES(1, &lampVAO);
-    glDeleteBuffers(1, &VBO);
+    glDeleteVertexArraysOES(1, &_cubeVAO);
+    glDeleteVertexArraysOES(1, &_lampVAO);
+    glDeleteBuffers(1, &_VBO);
 }
 
 /*

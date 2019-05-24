@@ -147,6 +147,14 @@
 - (void)useProgram {
     glUseProgram(_shaderProgram);
 }
+
+- (void)setBool:(std::string)name boolv:(BOOL)boolv {
+    glUniform1i(glGetUniformLocation(_shaderProgram, name.c_str()), (int)boolv);
+}
+
+- (void)setInt:(std::string)name intv:(int)intv {
+   glUniform1i(glGetUniformLocation(_shaderProgram, name.c_str()), intv);
+}
     
 - (void)setFload:(std::string)name floatv:(float)floatv {
     glUniform1f(glGetUniformLocation(_shaderProgram, name.c_str()), floatv);
