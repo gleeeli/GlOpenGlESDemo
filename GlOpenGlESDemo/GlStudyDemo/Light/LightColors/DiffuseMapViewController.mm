@@ -12,14 +12,19 @@
 #import "CommVertices.h"
 
 @interface DiffuseMapViewController ()
-@property (nonatomic , assign) GLuint myTexture;
+@property (nonatomic , assign) GLuint diffuseMap;//贴图
+@property (nonatomic , assign) GLuint specularMap;//采样镜面光贴图 处理钢铁边框被光照时表现较亮，木头被照则较暗
+@property (nonatomic, assign) float nowX;
+@property (nonatomic, assign) float directionAndSpeed;
 @end
 
 @implementation DiffuseMapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.directionAndSpeed = -0.01;
+    self.nowX = 0.5f;
+    [self setLightPost:self.nowX y:1.3f z:0.0f];
 }
 
 - (void)initShaderName {
@@ -44,9 +49,11 @@
     
     // 绑定灯的顶点
     [self createlampVAO];
-    [self loadTexture];
+    self.diffuseMap = [self loadTextureWithName:@"container2"];
+    self.specularMap = [self loadTextureWithName:@"container2_specular"];
     
     [self.lightShader setInt:"material.diffuse" intv:0];
+    [self.lightShader setInt:"material.specular" intv:1];
 }
 
 - (void)createCubeVAO {
@@ -86,6 +93,13 @@
 
 - (void)moveLambPosition {
     //函数体为空 则不移动光源
+    if (self.nowX > 0.6 || self.nowX < -0.6) {
+        self.directionAndSpeed = -self.directionAndSpeed;
+    }
+    
+    self.nowX += self.directionAndSpeed;
+    
+    [self setLightPost:self.nowX y:1.3f z:0.0f];
 }
 
 - (void)setOtherLightShader {
@@ -98,7 +112,7 @@
     [self.lightShader setVec3:"light.position" vec3:lightPos];
     
     [self.lightShader setVec3:"light.ambient" x:0.5f y:0.5f z:0.5f];
-    [self.lightShader setVec3:"light.diffuse" x:0.5f y:0.5f z:0.5f];
+    [self.lightShader setVec3:"light.diffuse" x:0.7f y:0.7f z:0.7f];
     [self.lightShader setVec3:"light.specular" x:1.0f y:1.0f z:1.0f];
     
     [self.lightShader setVec3:"material.specular" x:0.5f y:0.5f z:0.5f];
@@ -106,16 +120,16 @@
 }
 
 //创建以及加载纹理
-- (void)loadTexture {
+- (GLuint)loadTextureWithName:(NSString *)name{
     NSLog(@"加载纹理-loadTexture");
     //得到图片二进制
     float width;
     float height;
-    GLubyte * spriteData = [CommViewCode getDataFromImg:@"container2" width:&width height:&height];
+    GLubyte * spriteData = [CommViewCode getDataFromImg:name width:&width height:&height];
 
-
-    glGenTextures(1, &_myTexture);
-    glBindTexture(GL_TEXTURE_2D, self.myTexture);
+    GLuint texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
 
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
@@ -128,11 +142,17 @@
     glGenerateMipmap(GL_TEXTURE_2D);
 
     free(spriteData);
+    
+    return texture;
 }
 
 - (void)drawHandleOther {
+    glActiveTexture(GL_TEXTURE0);
     // bind Texture
-    glBindTexture(GL_TEXTURE_2D, self.myTexture);
+    glBindTexture(GL_TEXTURE_2D, self.diffuseMap);
+    
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, self.specularMap);
 }
 
 @end

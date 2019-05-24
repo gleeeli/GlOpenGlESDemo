@@ -21,7 +21,7 @@
 #import "CommShader.h"
 
 // lighting 灯的位置
-glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
+//glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
 
 @implementation LightColorsViewController
 {
@@ -31,11 +31,14 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
     CommCamera *camera;
 //    CommShader *lightShader;
 //    CommShader *lamShader;
+    glm::vec3 lightPos;
 }
 
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
+    lightPos = glm::vec3(0.0f, 1.3f, 0.0f);
 
     [self setupOpenGlBase];
     //编译着色器
@@ -59,6 +62,15 @@ glm::vec3 lightPos(0.0f, 1.3f, 0.0f);
 - (void)initShaderName {
     self.lightFrageShaderName = @"LightColors_shadow_shaderf";
     self.lightVertexShaderName = @"LightColors_shadow_shaderv";
+}
+
+/**
+ 设置光源位置
+ */
+- (void)setLightPost:(float)x y:(float)y z:(float)z {
+    lightPos.x = x;
+    lightPos.y = y;
+    lightPos.z = z;
 }
 
 - (void)handleVertex {

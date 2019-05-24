@@ -1,7 +1,7 @@
 struct Material {
 //    lowp vec3 ambient;//环境光照 移除了环境光材质颜色向量，因为环境光颜色在几乎所有情况下都等于漫反射颜色
     sampler2D diffuse;//漫反射光照下物体的颜色
-    lowp vec3 specular;//镜面光照对物体的颜色影响（或者甚至可能反射一个物体特定的镜面高光颜色 值越大被直照的光圈会越亮
+    sampler2D specular;//镜面光照对物体的颜色影响（或者甚至可能反射一个物体特定的镜面高光颜色 值越大被直照的光圈会越亮
     lowp float shininess;//影响镜面高光的散射/半径。
 };
 
@@ -53,11 +53,10 @@ void main()
     //需要注意的是我们对lightDir向量进行了取反。reflect函数要求第一个向量是从光源指向片段位置的向量
     lowp vec3 reflectDir = reflect(-lightDir, norm);
 
-    //这个32是高光的反光度(Shininess)。一个物体的反光度越高，反射光的能力越强，散射得越少，高光点就会越小
+    //这个material.shininess是高光的反光度(Shininess)。一个物体的反光度越高，反射光的能力越强，散射得越少，高光点就会越小
     highp float dotr = dot(viewDir, reflectDir);
     highp float spec = pow(max(dotr, 0.0), material.shininess);
-    lowp vec3 specular = light.specular * (spec * material.specular);
-//    lowp vec3 result = (ambient + diffuse + specular) * objectColor;
+    lowp vec3 specular = light.specular * spec * vec3(texture2D(material.specular, TexCoords));
     
     lowp vec3 result = ambient + diffuse + specular;
     

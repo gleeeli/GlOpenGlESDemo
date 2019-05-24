@@ -36,4 +36,8 @@
 
 - (NSArray *)getLightPos;
 - (void)drawHandleOther;
+/**
+ 设置光源位置
+ */
+- (void)setLightPost:(float)x y:(float)y z:(float)z;
 @end
