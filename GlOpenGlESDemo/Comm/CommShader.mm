@@ -144,6 +144,10 @@
     return YES;
 }
 
+/**
+ _shaderProgram就是一个程序对象，我们可以调用glUseProgram函数，用刚创建的程序对象作为它的参数，以激活这个程序对象
+ 在glUseProgram函数调用之后，每个着色器调用和渲染调用都会使用这个程序对象（也就是之前写的着色器)了
+ */
 - (void)useProgram {
     glUseProgram(_shaderProgram);
 }

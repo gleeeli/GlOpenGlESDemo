@@ -31,8 +31,7 @@ void main()
 //    gl_FragColor = vec4(lightColor * objectColor, 1.0);
     
     //第二种：添加环境光照
-    lowp vec3 ambient = light.ambient * vec3(texture2D(material.diffuse, TexCoords));
-//    lowp vec3 ambient = light.ambient * material.ambient;
+    lowp vec3 ambient = light.ambient * texture2D(material.diffuse, TexCoords).rgb;//light.ambient * vec3(texture2D(material.diffuse, TexCoords));
     
 //    lowp vec3 result = ambient * objectColor;//环境光乘以物体颜色
     
@@ -42,8 +41,8 @@ void main()
     lowp vec3 lightDir = normalize(light.position - FragPos);
   /*计算光源对当前片段实际的漫发射影响，片段法向量乘以光的方向，得到角度，两个向量之间的角度越大，漫反射分量就会越小如果两个向量之间的角度大于90度，点乘的结果就会变成负数，这样会导致漫反射分量变为负数。为此，我们使用max函数返回两个参数之间较大的参数,从而保证漫反射分量不会变成负数。*/
     highp float diff = max(dot(norm, lightDir), 0.0);
-    lowp vec3 diffuse = light.diffuse * diff * vec3(texture2D(material.diffuse, TexCoords));
-//    lowp vec3 diffuse = light.diffuse * (diff * material.diffuse);
+    lowp vec3 diffuse = light.diffuse * diff * texture2D(material.diffuse, TexCoords).rgb;//light.diffuse * diff * vec3(texture2D(material.diffuse, TexCoords));
+
 
     //环境光分量和漫反射分量相加乘以物体颜色得到最终显示颜色
 //    lowp vec3 result = (ambient + diffuse) * objectColor;
@@ -56,7 +55,7 @@ void main()
     //这个material.shininess是高光的反光度(Shininess)。一个物体的反光度越高，反射光的能力越强，散射得越少，高光点就会越小
     highp float dotr = dot(viewDir, reflectDir);
     highp float spec = pow(max(dotr, 0.0), material.shininess);
-    lowp vec3 specular = light.specular * spec * vec3(texture2D(material.specular, TexCoords));
+    lowp vec3 specular = light.specular * spec * texture2D(material.specular, TexCoords).rgb;;//light.specular * spec * vec3(texture2D(material.specular, TexCoords));
     
     lowp vec3 result = ambient + diffuse + specular;
     

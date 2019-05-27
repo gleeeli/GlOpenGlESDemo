@@ -24,7 +24,7 @@
     [super viewDidLoad];
     self.directionAndSpeed = -0.01;
     self.nowX = 0.5f;
-    [self setLightPost:self.nowX y:1.3f z:0.0f];
+    [self setLightPost:self.nowX y:1.3f z:0.25f];
 }
 
 - (void)initShaderName {
@@ -50,10 +50,15 @@
     // 绑定灯的顶点
     [self createlampVAO];
     self.diffuseMap = [self loadTextureWithName:@"container2"];
-    self.specularMap = [self loadTextureWithName:@"container2_specular"];
+//    self.specularMap = [self loadTextureWithName:@"container2_specular"];
+//    self.specularMap = [self loadTextureWithName:@"lighting_maps_specular_color"];
     
+//    [self.lightShader useProgram];不注释上面哪个lighting_maps_specular_color图片就会每效果 不知道原因
+
+    //0和1 对应下面glActiveTexture函数激活的纹理单元
     [self.lightShader setInt:"material.diffuse" intv:0];
     [self.lightShader setInt:"material.specular" intv:1];
+    
 }
 
 - (void)createCubeVAO {
@@ -93,13 +98,13 @@
 
 - (void)moveLambPosition {
     //函数体为空 则不移动光源
-    if (self.nowX > 0.6 || self.nowX < -0.6) {
-        self.directionAndSpeed = -self.directionAndSpeed;
-    }
-    
-    self.nowX += self.directionAndSpeed;
-    
-    [self setLightPost:self.nowX y:1.3f z:0.0f];
+//    if (self.nowX > 0.6 || self.nowX < -0.6) {
+//        self.directionAndSpeed = -self.directionAndSpeed;
+//    }
+//
+//    self.nowX += self.directionAndSpeed;
+//
+//    [self setLightPost:self.nowX y:1.3f z:0.0f];
 }
 
 - (void)setOtherLightShader {
@@ -147,6 +152,7 @@
 }
 
 - (void)drawHandleOther {
+    //激活的纹理单元
     glActiveTexture(GL_TEXTURE0);
     // bind Texture
     glBindTexture(GL_TEXTURE_2D, self.diffuseMap);

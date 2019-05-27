@@ -208,6 +208,7 @@
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     //深度测试清除缓存
     glClear(GL_COLOR_BUFFER_BIT  | GL_DEPTH_BUFFER_BIT);
+    
     [self drawHandleOther];
     [self moveLambPosition];
     [self handleCube3D];
