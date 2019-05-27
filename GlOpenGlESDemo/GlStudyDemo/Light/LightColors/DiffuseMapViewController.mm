@@ -50,10 +50,11 @@
     // 绑定灯的顶点
     [self createlampVAO];
     self.diffuseMap = [self loadTextureWithName:@"container2"];
-//    self.specularMap = [self loadTextureWithName:@"container2_specular"];
+    self.specularMap = [self loadTextureWithName:@"container2_specular"];
 //    self.specularMap = [self loadTextureWithName:@"lighting_maps_specular_color"];
     
-//    [self.lightShader useProgram];不注释上面哪个lighting_maps_specular_color图片就会每效果 不知道原因
+    //不注释上面哪个lighting_maps_specular_color图片就会每效果 不知道原因
+//    [self.lightShader useProgram];
 
     //0和1 对应下面glActiveTexture函数激活的纹理单元
     [self.lightShader setInt:"material.diffuse" intv:0];
@@ -135,7 +136,7 @@
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
-
+    
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
