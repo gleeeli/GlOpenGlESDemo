@@ -99,13 +99,13 @@
 
 - (void)moveLambPosition {
     //函数体为空 则不移动光源
-//    if (self.nowX > 0.6 || self.nowX < -0.6) {
-//        self.directionAndSpeed = -self.directionAndSpeed;
-//    }
-//
-//    self.nowX += self.directionAndSpeed;
-//
-//    [self setLightPost:self.nowX y:1.3f z:0.0f];
+    if (self.nowX > 0.6 || self.nowX < -0.6) {
+        self.directionAndSpeed = -self.directionAndSpeed;
+    }
+
+    self.nowX += self.directionAndSpeed;
+
+    [self setLightPost:self.nowX y:1.3f z:0.0f];
 }
 
 - (void)setOtherLightShader {
