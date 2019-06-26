@@ -301,6 +301,36 @@
             </objects>
             <point key="canvasLocation" x="9033" y="710"/>
         </scene>
+        <!--Depth Test View Controller-->
+        <scene sceneID="vq8-lE-Iad">
+            <objects>
+                <viewController storyboardIdentifier="DepthTestViewController" id="MQG-jn-4HE" customClass="DepthTestViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uyy-SQ-OgC" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iZa-jK-X2N"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MmA-uv-vYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9743" y="713"/>
+        </scene>
+        <!--Stencil Test View Controller-->
+        <scene sceneID="t8s-ue-hYa">
+            <objects>
+                <viewController storyboardIdentifier="StencilTestViewController" id="bbF-NB-da9" customClass="StencilTestViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S8t-0X-zxm" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="2sw-Er-URI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DYw-1W-Ozq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10354" y="692"/>
+        </scene>
         <!--Rectangle View Controller-->
         <scene sceneID="C6q-l3-UDQ">
             <objects>

@@ -15,4 +15,8 @@ float * getCubeVertices(void);
 float* getCubeAndNoramlVertices(void);
 //获取立方体和每个面的法向量 以及纹理贴图
 float* getCubeAndNoramlAndMapVertices(void);
+//获取立方体和纹理 以及纹理贴图 长度30 *6 = 180
+float* getCubeAndTextureVertices(void);
+//获取地板顶点和纹理 长度：30
+float* getPlanVertices(void);
 #endif /* CommVertices_h */

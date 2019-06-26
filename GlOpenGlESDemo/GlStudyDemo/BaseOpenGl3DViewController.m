@@ -33,6 +33,7 @@
     view.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;  //颜色缓冲区格式
     //此句与深度测试有关
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    view.drawableStencilFormat = GLKViewDrawableStencilFormat8;
     [EAGLContext setCurrentContext:self.mContext];
     
     [self openDepth];

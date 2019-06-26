@@ -10,12 +10,25 @@
 		190B6EA92297BCDB0087703C /* DiffuseMapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 190B6EA82297BCDB0087703C /* DiffuseMapViewController.mm */; };
 		190B6EAC2297BD860087703C /* Diffuse_map_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 190B6EAB2297BD860087703C /* Diffuse_map_shaderf.fsh */; };
 		190B6EAE2297C1AC0087703C /* Diffuse_map_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 190B6EAD2297C1AC0087703C /* Diffuse_map_shaderv.vsh */; };
+		1911B54022C30F6C00CDCBBF /* Gl_stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = 1911B53F22C30F6C00CDCBBF /* Gl_stb_image.c */; };
+		1911B54622C3171F00CDCBBF /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1911B54422C3171F00CDCBBF /* OpenGLView.m */; };
+		1911B54D22C3182400CDCBBF /* TextureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1911B54A22C3182400CDCBBF /* TextureHelper.m */; };
+		1911B54E22C3182400CDCBBF /* TextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1911B54B22C3182400CDCBBF /* TextureLoader.mm */; };
+		1911B55422C318B700CDCBBF /* GLESMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 1911B55322C318B700CDCBBF /* GLESMath.c */; };
+		1911B55622C31CF000CDCBBF /* bricks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1911B55522C31CF000CDCBBF /* bricks.jpg */; };
+		1911B55822C3201F00CDCBBF /* bricks.png in Resources */ = {isa = PBXBuildFile; fileRef = 1911B55722C3201F00CDCBBF /* bricks.png */; };
+		1911B55A22C343B700CDCBBF /* container3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1911B55922C343B700CDCBBF /* container3.png */; };
+		1911B55D22C35EAC00CDCBBF /* StencilTestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1911B55C22C35EAC00CDCBBF /* StencilTestViewController.mm */; };
+		1911B55F22C3610B00CDCBBF /* stencil_test_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1911B55E22C3610B00CDCBBF /* stencil_test_shaderf.fsh */; };
 		1912179822603AAD00DBFA33 /* CubeCSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1912179722603AAD00DBFA33 /* CubeCSViewController.mm */; };
 		19129923228D37D1007B6F78 /* LightColorsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19129922228D37D1007B6F78 /* LightColorsViewController.mm */; };
 		19129928228D3D66007B6F78 /* LightColors_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 19129926228D3D66007B6F78 /* LightColors_shaderf.fsh */; };
 		19129929228D3D66007B6F78 /* LightColors_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 19129927228D3D66007B6F78 /* LightColors_shaderv.vsh */; };
 		1912992B228D5F71007B6F78 /* LightColors_light_source_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1912992A228D5F71007B6F78 /* LightColors_light_source_shaderf.fsh */; };
 		1912DB61225F3EE300D05EC2 /* simple3D_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1912DB60225F3EE300D05EC2 /* simple3D_shaderf.fsh */; };
+		1939EC9F22C21256008BF118 /* DepthTestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1939EC9E22C21256008BF118 /* DepthTestViewController.mm */; };
+		1939ECA722C21D66008BF118 /* depth_test_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1939ECA522C21D65008BF118 /* depth_test_shaderv.vsh */; };
+		1939ECA822C21D66008BF118 /* depth_test_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1939ECA622C21D65008BF118 /* depth_test_shaderf.fsh */; };
 		193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B57FC21475A4C00E40425 /* AppDelegate.m */; };
 		193B580021475A4C00E40425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193B57FF21475A4C00E40425 /* ViewController.m */; };
 		193B580321475A4C00E40425 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193B580121475A4C00E40425 /* Main.storyboard */; };
@@ -62,6 +75,24 @@
 		190B6EA82297BCDB0087703C /* DiffuseMapViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DiffuseMapViewController.mm; sourceTree = "<group>"; };
 		190B6EAB2297BD860087703C /* Diffuse_map_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Diffuse_map_shaderf.fsh; sourceTree = "<group>"; };
 		190B6EAD2297C1AC0087703C /* Diffuse_map_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Diffuse_map_shaderv.vsh; sourceTree = "<group>"; };
+		1911B53E22C30EF700CDCBBF /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		1911B53F22C30F6C00CDCBBF /* Gl_stb_image.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Gl_stb_image.c; sourceTree = "<group>"; };
+		1911B54422C3171F00CDCBBF /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		1911B54522C3171F00CDCBBF /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		1911B54922C3182400CDCBBF /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
+		1911B54A22C3182400CDCBBF /* TextureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureHelper.m; sourceTree = "<group>"; };
+		1911B54B22C3182400CDCBBF /* TextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextureLoader.mm; sourceTree = "<group>"; };
+		1911B54C22C3182400CDCBBF /* TextureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureHelper.h; sourceTree = "<group>"; };
+		1911B55022C3188600CDCBBF /* PVRTGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTGlobal.h; sourceTree = "<group>"; };
+		1911B55122C3188600CDCBBF /* PVRTTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTTexture.h; sourceTree = "<group>"; };
+		1911B55222C318B700CDCBBF /* GLESMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESMath.h; sourceTree = "<group>"; };
+		1911B55322C318B700CDCBBF /* GLESMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLESMath.c; sourceTree = "<group>"; };
+		1911B55522C31CF000CDCBBF /* bricks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bricks.jpg; sourceTree = "<group>"; };
+		1911B55722C3201F00CDCBBF /* bricks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bricks.png; sourceTree = "<group>"; };
+		1911B55922C343B700CDCBBF /* container3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container3.png; sourceTree = "<group>"; };
+		1911B55B22C35EAC00CDCBBF /* StencilTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StencilTestViewController.h; sourceTree = "<group>"; };
+		1911B55C22C35EAC00CDCBBF /* StencilTestViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = StencilTestViewController.mm; sourceTree = "<group>"; };
+		1911B55E22C3610B00CDCBBF /* stencil_test_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = stencil_test_shaderf.fsh; sourceTree = "<group>"; };
 		1912179622603AAD00DBFA33 /* CubeCSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeCSViewController.h; sourceTree = "<group>"; };
 		1912179722603AAD00DBFA33 /* CubeCSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CubeCSViewController.mm; sourceTree = "<group>"; };
 		19129921228D37D1007B6F78 /* LightColorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightColorsViewController.h; sourceTree = "<group>"; };
@@ -70,6 +101,10 @@
 		19129927228D3D66007B6F78 /* LightColors_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightColors_shaderv.vsh; sourceTree = "<group>"; };
 		1912992A228D5F71007B6F78 /* LightColors_light_source_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightColors_light_source_shaderf.fsh; sourceTree = "<group>"; };
 		1912DB60225F3EE300D05EC2 /* simple3D_shaderf.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simple3D_shaderf.fsh; sourceTree = "<group>"; };
+		1939EC9D22C21256008BF118 /* DepthTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthTestViewController.h; sourceTree = "<group>"; };
+		1939EC9E22C21256008BF118 /* DepthTestViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DepthTestViewController.mm; sourceTree = "<group>"; };
+		1939ECA522C21D65008BF118 /* depth_test_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = depth_test_shaderv.vsh; sourceTree = "<group>"; };
+		1939ECA622C21D65008BF118 /* depth_test_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = depth_test_shaderf.fsh; sourceTree = "<group>"; };
 		193B57F821475A4C00E40425 /* GlOpenGlESDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlOpenGlESDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		193B57FB21475A4C00E40425 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		193B57FC21475A4C00E40425 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -158,6 +193,49 @@
 			path = DiffuseMap;
 			sourceTree = "<group>";
 		};
+		1911B53D22C30EE500CDCBBF /* Verdon */ = {
+			isa = PBXGroup;
+			children = (
+				1911B54822C3182400CDCBBF /* GitFile */,
+				1911B53E22C30EF700CDCBBF /* stb_image.h */,
+				1911B53F22C30F6C00CDCBBF /* Gl_stb_image.c */,
+			);
+			path = Verdon;
+			sourceTree = "<group>";
+		};
+		1911B54122C311B700CDCBBF /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1911B55722C3201F00CDCBBF /* bricks.png */,
+				1911B55522C31CF000CDCBBF /* bricks.jpg */,
+				1911B55922C343B700CDCBBF /* container3.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		1911B54822C3182400CDCBBF /* GitFile */ = {
+			isa = PBXGroup;
+			children = (
+				1911B55322C318B700CDCBBF /* GLESMath.c */,
+				1911B55222C318B700CDCBBF /* GLESMath.h */,
+				1911B54F22C3188600CDCBBF /* PowerVR */,
+				1911B54922C3182400CDCBBF /* TextureLoader.h */,
+				1911B54A22C3182400CDCBBF /* TextureHelper.m */,
+				1911B54B22C3182400CDCBBF /* TextureLoader.mm */,
+				1911B54C22C3182400CDCBBF /* TextureHelper.h */,
+			);
+			path = GitFile;
+			sourceTree = "<group>";
+		};
+		1911B54F22C3188600CDCBBF /* PowerVR */ = {
+			isa = PBXGroup;
+			children = (
+				1911B55022C3188600CDCBBF /* PVRTGlobal.h */,
+				1911B55122C3188600CDCBBF /* PVRTTexture.h */,
+			);
+			path = PowerVR;
+			sourceTree = "<group>";
+		};
 		19129920228D36F7007B6F78 /* Light */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +272,28 @@
 			path = Shader;
 			sourceTree = "<group>";
 		};
+		1939EC9922C20F21008BF118 /* Senior */ = {
+			isa = PBXGroup;
+			children = (
+				1939ECA022C21D21008BF118 /* Shader */,
+				1939EC9D22C21256008BF118 /* DepthTestViewController.h */,
+				1939EC9E22C21256008BF118 /* DepthTestViewController.mm */,
+				1911B55B22C35EAC00CDCBBF /* StencilTestViewController.h */,
+				1911B55C22C35EAC00CDCBBF /* StencilTestViewController.mm */,
+			);
+			path = Senior;
+			sourceTree = "<group>";
+		};
+		1939ECA022C21D21008BF118 /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				1939ECA622C21D65008BF118 /* depth_test_shaderf.fsh */,
+				1939ECA522C21D65008BF118 /* depth_test_shaderv.vsh */,
+				1911B55E22C3610B00CDCBBF /* stencil_test_shaderf.fsh */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
 		193B57EF21475A4C00E40425 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +313,8 @@
 		193B57FA21475A4C00E40425 /* GlOpenGlESDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1911B54122C311B700CDCBBF /* Resource */,
+				1911B53D22C30EE500CDCBBF /* Verdon */,
 				195FC997225F192E008FF16B /* Comm */,
 				195583C9222CAD3200E6F6CB /* GlStudyDemo */,
 				193B581A2147C6B900E40425 /* shaderf.fsh */,
@@ -251,6 +353,7 @@
 		195583C9222CAD3200E6F6CB /* GlStudyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1939EC9922C20F21008BF118 /* Senior */,
 				19129920228D36F7007B6F78 /* Light */,
 				195FC990225ED038008FF16B /* Coordinate Systems */,
 				19574443222F9D4300AE4383 /* Transform */,
@@ -348,6 +451,8 @@
 		195FC997225F192E008FF16B /* Comm */ = {
 			isa = PBXGroup;
 			children = (
+				1911B54522C3171F00CDCBBF /* OpenGLView.h */,
+				1911B54422C3171F00CDCBBF /* OpenGLView.m */,
 				195FC998225F1940008FF16B /* CommHeader.h */,
 				193E5327228E3AC7009C913F /* CommViewCode.h */,
 				193E5328228E3AC7009C913F /* CommViewCode.m */,
@@ -418,14 +523,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1939ECA722C21D66008BF118 /* depth_test_shaderv.vsh in Resources */,
 				193B581D2147C6B900E40425 /* shaderv.vsh in Resources */,
 				190B6EAE2297C1AC0087703C /* Diffuse_map_shaderv.vsh in Resources */,
 				194487AE222E127E00A5A1E3 /* two_texture_shaderv.vsh in Resources */,
 				19518217229641AE00A5D261 /* LightColors_material_shaderf.fsh in Resources */,
 				193B580821475A4D00E40425 /* LaunchScreen.storyboard in Resources */,
+				1911B55A22C343B700CDCBBF /* container3.png in Resources */,
 				199DA32D22928F8900B8D130 /* LightColors_shadow_shaderf.fsh in Resources */,
 				195FC996225F0FDA008FF16B /* simple3D_shaderv.vsh in Resources */,
 				19129929228D3D66007B6F78 /* LightColors_shaderv.vsh in Resources */,
+				1939ECA822C21D66008BF118 /* depth_test_shaderf.fsh in Resources */,
 				195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */,
 				19129928228D3D66007B6F78 /* LightColors_shaderf.fsh in Resources */,
 				193B580521475A4D00E40425 /* Assets.xcassets in Resources */,
@@ -435,9 +543,12 @@
 				194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */,
 				1912DB61225F3EE300D05EC2 /* simple3D_shaderf.fsh in Resources */,
 				193B580321475A4C00E40425 /* Main.storyboard in Resources */,
+				1911B55F22C3610B00CDCBBF /* stencil_test_shaderf.fsh in Resources */,
 				1912992B228D5F71007B6F78 /* LightColors_light_source_shaderf.fsh in Resources */,
+				1911B55822C3201F00CDCBBF /* bricks.png in Resources */,
 				193B581C2147C6B900E40425 /* shaderf.fsh in Resources */,
 				195583E4222D1BE400E6F6CB /* texture_shaderv.vsh in Resources */,
+				1911B55622C31CF000CDCBBF /* bricks.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +563,7 @@
 				195583CF222CAD4E00E6F6CB /* RectangleViewController.m in Sources */,
 				195583CE222CAD4E00E6F6CB /* OPGlTriangleViewController.m in Sources */,
 				193E5334228E5E29009C913F /* BaseOpenGl3DViewController.m in Sources */,
+				1911B55422C318B700CDCBBF /* GLESMath.c in Sources */,
 				19129923228D37D1007B6F78 /* LightColorsViewController.mm in Sources */,
 				19AB06FA2268780900E49661 /* MultiplerCubeViewController.mm in Sources */,
 				195583DD222D0A3E00E6F6CB /* TextureViewController.m in Sources */,
@@ -461,17 +573,23 @@
 				193B58192147B34C00E40425 /* BaseViewController.m in Sources */,
 				1951821422963D4E00A5D261 /* LightColorsMaterialViewController.mm in Sources */,
 				193E5331228E5B40009C913F /* CommShader.mm in Sources */,
+				1911B55D22C35EAC00CDCBBF /* StencilTestViewController.mm in Sources */,
+				1911B54E22C3182400CDCBBF /* TextureLoader.mm in Sources */,
 				19ED2A52226715610030361A /* BaseCoordinateSysViewController.m in Sources */,
 				194487AA222E116900A5A1E3 /* TwoTextureViewController.m in Sources */,
 				1912179822603AAD00DBFA33 /* CubeCSViewController.mm in Sources */,
 				19D21B18229246AC00D5222B /* CommVertices.mm in Sources */,
+				1911B54622C3171F00CDCBBF /* OpenGLView.m in Sources */,
 				195583E0222D1B5F00E6F6CB /* BaseOpenGlViewController.m in Sources */,
+				1911B54022C30F6C00CDCBBF /* Gl_stb_image.c in Sources */,
+				1939EC9F22C21256008BF118 /* DepthTestViewController.mm in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193E5329228E3AC7009C913F /* CommViewCode.m in Sources */,
 				190B6EA92297BCDB0087703C /* DiffuseMapViewController.mm in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
 				195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */,
 				193E532C228E3B91009C913F /* CommCamera.mm in Sources */,
+				1911B54D22C3182400CDCBBF /* TextureHelper.m in Sources */,
 				19CF922422696F5B0077ADA4 /* CameraCSViewController.mm in Sources */,
 				19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */,
 				195583D5222CD44B00E6F6CB /* GlSLUniformViewController.m in Sources */,
