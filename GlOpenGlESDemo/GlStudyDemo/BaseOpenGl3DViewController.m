@@ -34,6 +34,7 @@
     //此句与深度测试有关
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     view.drawableStencilFormat = GLKViewDrawableStencilFormat8;
+//    view.drawableMultisample = GLKViewDrawableMultisampleNone;
     [EAGLContext setCurrentContext:self.mContext];
     
     [self openDepth];
