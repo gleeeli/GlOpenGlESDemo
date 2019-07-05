@@ -9,6 +9,7 @@
 #import "FrameBufferView.h"
 #import "CommShader.h"
 #import "CommViewCode.h"
+#import "CommHeader.h"
 
 
 @implementation FrameBufferView
@@ -31,8 +32,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor redColor];
-        frameBuffer1Size = CGSizeMake(256, 256);
+        frameBuffer1Size = CGSizeMake(320, 558);
         
+        NSLog(@"屏幕宽度：%f,高度:%f",SCREEN_WIDTH,SCREEN_HEIGHT);
         [self setupLayer];
         [self setupContext];
         
@@ -68,7 +70,8 @@
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     
-    glViewport(0, 0, GLsizei(frameBuffer1Size.width), GLsizei(frameBuffer1Size.height));
+//    glViewport(0, 0, frameBuffer1Size.width * 2.0, frameBuffer1Size.height);
+    glViewport(-160, 0, 320 * 2, 568);
     
     glBindVertexArrayOES(vbo1);
     glActiveTexture(GL_TEXTURE0);
@@ -80,15 +83,17 @@
     [shader useProgram];
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);//_frameBuffer == 1
     
-    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glClearColor(0.0, 1.0, 1.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     
-    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+//    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+//    glViewport(0, 0, 320, 568);
+    
+    NSLog(@"渲染视口宽度：%f,高度:%f",self.frame.size.width,self.frame.size.height);
     
     glBindVertexArrayOES(vbo);
-    glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, fboTextId);
-    glUniform1i(glGetUniformLocation(shader1.shaderProgram,"u_Texture"), 1);
+    glUniform1i(glGetUniformLocation(shader.shaderProgram,"u_Texture"), 0);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
@@ -106,11 +111,11 @@
 }
 
 - (void)setupContext {
-    // 指定 OpenGL 渲染 API 的版本，在这里我们使用 OpenGL ES 3.0
+    // 指定 OpenGL 渲染 API 的版本，
     EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
     _context = [[EAGLContext alloc] initWithAPI:api];
     if (!_context) {
-        NSLog(@"Failed to initialize OpenGLES 3.0 context");
+        NSLog(@"Failed to initialize OpenGLES context");
         exit(1);
     }
     
@@ -156,7 +161,7 @@
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     // 生成纹理，数据给nil
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, frameBuffer1Size.width, frameBuffer1Size.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nil);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, frameBuffer1Size.width, frameBuffer1Size.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
     glBindTexture(GL_TEXTURE_2D, 0);
     
     // 生成帧缓存
@@ -240,7 +245,7 @@
     float height;
     GLubyte * spriteData = [CommViewCode getDataFromImg:name width:&width height:&height];
     
-    
+    NSLog(@"图片宽度：%f,高度:%f",width,height);
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
