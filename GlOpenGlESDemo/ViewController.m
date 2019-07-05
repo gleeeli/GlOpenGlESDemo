@@ -26,6 +26,8 @@
 #import "DiffuseMapViewController.h"
 #import "DepthTestViewController.h"
 #import "StencilTestViewController.h"
+#import "FrameBufferViewController.h"
+#import "FrameBufferSimpleExampleViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -57,6 +59,8 @@
     [self.muarray addObject:@{@"name":@"纹理贴图",@"desc":@"光对贴图物体的影响"}];
     [self.muarray addObject:@{@"name":@"深度测试",@"desc":@"深度缓存，防止后绘制的挡在前面，比如地板"}];
     [self.muarray addObject:@{@"name":@"模板测试",@"desc":@"立方体画边框"}];
+    [self.muarray addObject:@{@"name":@"帧缓冲",@"desc":@"帧缓冲和深度缓冲的结合，离屏渲染"}];
+    [self.muarray addObject:@{@"name":@"帧缓冲2",@"desc":@"简单案列"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -145,6 +149,10 @@
         vc = [storyboard instantiateViewControllerWithIdentifier:@"DepthTestViewController"];
     }else if ([title isEqualToString:@"模板测试"]) {
         vc = [storyboard instantiateViewControllerWithIdentifier:@"StencilTestViewController"];
+    }else if ([title isEqualToString:@"帧缓冲"]) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameBufferViewController"];
+    }else if ([title isEqualToString:@"帧缓冲2"]) {
+        vc = [[FrameBufferSimpleExampleViewController alloc] init];
     }
 
     vc.title = desc;

@@ -46,6 +46,11 @@
 		194487AA222E116900A5A1E3 /* TwoTextureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194487A9222E116900A5A1E3 /* TwoTextureViewController.m */; };
 		194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 194487AB222E11FF00A5A1E3 /* two_texture_shaderf.fsh */; };
 		194487AE222E127E00A5A1E3 /* two_texture_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 194487AD222E127E00A5A1E3 /* two_texture_shaderv.vsh */; };
+		1944EF0622C460A40089D280 /* FrameBufferViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1944EF0522C460A40089D280 /* FrameBufferViewController.mm */; };
+		1944EF0C22C4A0C60089D280 /* fb_screen_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1944EF0822C4A0C60089D280 /* fb_screen_shaderv.vsh */; };
+		1944EF0D22C4A0C60089D280 /* frame_buffer_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1944EF0922C4A0C60089D280 /* frame_buffer_shaderf.fsh */; };
+		1944EF0E22C4A0C60089D280 /* fb_screen_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1944EF0A22C4A0C60089D280 /* fb_screen_shaderf.fsh */; };
+		1944EF0F22C4A0C60089D280 /* frame_buffer_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1944EF0B22C4A0C60089D280 /* frame_buffer_shaderv.vsh */; };
 		1951821422963D4E00A5D261 /* LightColorsMaterialViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1951821322963D4E00A5D261 /* LightColorsMaterialViewController.mm */; };
 		19518217229641AE00A5D261 /* LightColors_material_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 19518216229641AE00A5D261 /* LightColors_material_shaderf.fsh */; };
 		195583CE222CAD4E00E6F6CB /* OPGlTriangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 195583CA222CAD4E00E6F6CB /* OPGlTriangleViewController.m */; };
@@ -67,7 +72,12 @@
 		19CF922722697DE60077ADA4 /* ControlMoveCSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19CF922622697DE60077ADA4 /* ControlMoveCSViewController.mm */; };
 		19CF922A2269BF8D0077ADA4 /* MouseAngleCSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19CF92292269BF8D0077ADA4 /* MouseAngleCSViewController.mm */; };
 		19D21B18229246AC00D5222B /* CommVertices.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19D21B17229246AC00D5222B /* CommVertices.mm */; };
+		19E2548322CED3A8001BE99D /* FrameBufferView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19E2548222CED3A8001BE99D /* FrameBufferView.mm */; };
+		19E2549322CEFD15001BE99D /* FrameBufferSimpleExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E2549222CEFD15001BE99D /* FrameBufferSimpleExampleViewController.m */; };
 		19ED2A52226715610030361A /* BaseCoordinateSysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19ED2A51226715610030361A /* BaseCoordinateSysViewController.m */; };
+		19F00B5A22CF352D00F6E19D /* frame1_shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 19F00B5922CF352D00F6E19D /* frame1_shaderf.fsh */; };
+		19F00B5E22CF356D00F6E19D /* frame1_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 19F00B5D22CF356D00F6E19D /* frame1_shaderv.vsh */; };
+		19F00B6022CF36DB00F6E19D /* frame_shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 19F00B5F22CF36DB00F6E19D /* frame_shaderv.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +142,12 @@
 		194487A9222E116900A5A1E3 /* TwoTextureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoTextureViewController.m; sourceTree = "<group>"; };
 		194487AB222E11FF00A5A1E3 /* two_texture_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = two_texture_shaderf.fsh; sourceTree = "<group>"; };
 		194487AD222E127E00A5A1E3 /* two_texture_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = two_texture_shaderv.vsh; sourceTree = "<group>"; };
+		1944EF0422C460A40089D280 /* FrameBufferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameBufferViewController.h; sourceTree = "<group>"; };
+		1944EF0522C460A40089D280 /* FrameBufferViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FrameBufferViewController.mm; sourceTree = "<group>"; };
+		1944EF0822C4A0C60089D280 /* fb_screen_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fb_screen_shaderv.vsh; sourceTree = "<group>"; };
+		1944EF0922C4A0C60089D280 /* frame_buffer_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = frame_buffer_shaderf.fsh; sourceTree = "<group>"; };
+		1944EF0A22C4A0C60089D280 /* fb_screen_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fb_screen_shaderf.fsh; sourceTree = "<group>"; };
+		1944EF0B22C4A0C60089D280 /* frame_buffer_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = frame_buffer_shaderv.vsh; sourceTree = "<group>"; };
 		1951821222963D4E00A5D261 /* LightColorsMaterialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightColorsMaterialViewController.h; sourceTree = "<group>"; };
 		1951821322963D4E00A5D261 /* LightColorsMaterialViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LightColorsMaterialViewController.mm; sourceTree = "<group>"; };
 		19518216229641AE00A5D261 /* LightColors_material_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LightColors_material_shaderf.fsh; sourceTree = "<group>"; };
@@ -169,8 +185,15 @@
 		19CF92292269BF8D0077ADA4 /* MouseAngleCSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MouseAngleCSViewController.mm; sourceTree = "<group>"; };
 		19D21B16229246AC00D5222B /* CommVertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommVertices.h; sourceTree = "<group>"; };
 		19D21B17229246AC00D5222B /* CommVertices.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CommVertices.mm; sourceTree = "<group>"; };
+		19E2548122CED3A8001BE99D /* FrameBufferView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameBufferView.h; sourceTree = "<group>"; };
+		19E2548222CED3A8001BE99D /* FrameBufferView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FrameBufferView.mm; sourceTree = "<group>"; };
+		19E2549122CEFD15001BE99D /* FrameBufferSimpleExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameBufferSimpleExampleViewController.h; sourceTree = "<group>"; };
+		19E2549222CEFD15001BE99D /* FrameBufferSimpleExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameBufferSimpleExampleViewController.m; sourceTree = "<group>"; };
 		19ED2A50226715610030361A /* BaseCoordinateSysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCoordinateSysViewController.h; sourceTree = "<group>"; };
 		19ED2A51226715610030361A /* BaseCoordinateSysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCoordinateSysViewController.m; sourceTree = "<group>"; };
+		19F00B5922CF352D00F6E19D /* frame1_shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = frame1_shaderf.fsh; sourceTree = "<group>"; };
+		19F00B5D22CF356D00F6E19D /* frame1_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = frame1_shaderv.vsh; sourceTree = "<group>"; };
+		19F00B5F22CF36DB00F6E19D /* frame_shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = frame_shaderv.vsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,11 +298,16 @@
 		1939EC9922C20F21008BF118 /* Senior */ = {
 			isa = PBXGroup;
 			children = (
+				19E2548022CED38C001BE99D /* View */,
 				1939ECA022C21D21008BF118 /* Shader */,
 				1939EC9D22C21256008BF118 /* DepthTestViewController.h */,
 				1939EC9E22C21256008BF118 /* DepthTestViewController.mm */,
 				1911B55B22C35EAC00CDCBBF /* StencilTestViewController.h */,
 				1911B55C22C35EAC00CDCBBF /* StencilTestViewController.mm */,
+				1944EF0422C460A40089D280 /* FrameBufferViewController.h */,
+				1944EF0522C460A40089D280 /* FrameBufferViewController.mm */,
+				19E2549122CEFD15001BE99D /* FrameBufferSimpleExampleViewController.h */,
+				19E2549222CEFD15001BE99D /* FrameBufferSimpleExampleViewController.m */,
 			);
 			path = Senior;
 			sourceTree = "<group>";
@@ -287,6 +315,7 @@
 		1939ECA022C21D21008BF118 /* Shader */ = {
 			isa = PBXGroup;
 			children = (
+				1944EF0722C4A0C60089D280 /* FrameBuffer */,
 				1939ECA622C21D65008BF118 /* depth_test_shaderf.fsh */,
 				1939ECA522C21D65008BF118 /* depth_test_shaderv.vsh */,
 				1911B55E22C3610B00CDCBBF /* stencil_test_shaderf.fsh */,
@@ -340,6 +369,18 @@
 				194008752230F18A0081EC6F /* transform_shaderv.vsh */,
 			);
 			path = Shader;
+			sourceTree = "<group>";
+		};
+		1944EF0722C4A0C60089D280 /* FrameBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				19E2548422CEF524001BE99D /* SampleExample */,
+				1944EF0A22C4A0C60089D280 /* fb_screen_shaderf.fsh */,
+				1944EF0822C4A0C60089D280 /* fb_screen_shaderv.vsh */,
+				1944EF0922C4A0C60089D280 /* frame_buffer_shaderf.fsh */,
+				1944EF0B22C4A0C60089D280 /* frame_buffer_shaderv.vsh */,
+			);
+			path = FrameBuffer;
 			sourceTree = "<group>";
 		};
 		195182152296417D00A5D261 /* Material */ = {
@@ -466,6 +507,25 @@
 			path = Comm;
 			sourceTree = "<group>";
 		};
+		19E2548022CED38C001BE99D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19E2548122CED3A8001BE99D /* FrameBufferView.h */,
+				19E2548222CED3A8001BE99D /* FrameBufferView.mm */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E2548422CEF524001BE99D /* SampleExample */ = {
+			isa = PBXGroup;
+			children = (
+				19F00B5F22CF36DB00F6E19D /* frame_shaderv.vsh */,
+				19F00B5D22CF356D00F6E19D /* frame1_shaderv.vsh */,
+				19F00B5922CF352D00F6E19D /* frame1_shaderf.fsh */,
+			);
+			path = SampleExample;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -524,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1939ECA722C21D66008BF118 /* depth_test_shaderv.vsh in Resources */,
+				19F00B5E22CF356D00F6E19D /* frame1_shaderv.vsh in Resources */,
 				193B581D2147C6B900E40425 /* shaderv.vsh in Resources */,
 				190B6EAE2297C1AC0087703C /* Diffuse_map_shaderv.vsh in Resources */,
 				194487AE222E127E00A5A1E3 /* two_texture_shaderv.vsh in Resources */,
@@ -535,16 +596,22 @@
 				19129929228D3D66007B6F78 /* LightColors_shaderv.vsh in Resources */,
 				1939ECA822C21D66008BF118 /* depth_test_shaderf.fsh in Resources */,
 				195583E5222D1BE400E6F6CB /* texture_shaderf.fsh in Resources */,
+				19F00B6022CF36DB00F6E19D /* frame_shaderv.vsh in Resources */,
+				19F00B5A22CF352D00F6E19D /* frame1_shaderf.fsh in Resources */,
 				19129928228D3D66007B6F78 /* LightColors_shaderf.fsh in Resources */,
 				193B580521475A4D00E40425 /* Assets.xcassets in Resources */,
 				199DA32B22928E7A00B8D130 /* LightColors_shadow_shaderv.vsh in Resources */,
 				194008762230F18A0081EC6F /* transform_shaderv.vsh in Resources */,
 				190B6EAC2297BD860087703C /* Diffuse_map_shaderf.fsh in Resources */,
 				194487AC222E11FF00A5A1E3 /* two_texture_shaderf.fsh in Resources */,
+				1944EF0C22C4A0C60089D280 /* fb_screen_shaderv.vsh in Resources */,
+				1944EF0F22C4A0C60089D280 /* frame_buffer_shaderv.vsh in Resources */,
 				1912DB61225F3EE300D05EC2 /* simple3D_shaderf.fsh in Resources */,
 				193B580321475A4C00E40425 /* Main.storyboard in Resources */,
 				1911B55F22C3610B00CDCBBF /* stencil_test_shaderf.fsh in Resources */,
+				1944EF0E22C4A0C60089D280 /* fb_screen_shaderf.fsh in Resources */,
 				1912992B228D5F71007B6F78 /* LightColors_light_source_shaderf.fsh in Resources */,
+				1944EF0D22C4A0C60089D280 /* frame_buffer_shaderf.fsh in Resources */,
 				1911B55822C3201F00CDCBBF /* bricks.png in Resources */,
 				193B581C2147C6B900E40425 /* shaderf.fsh in Resources */,
 				195583E4222D1BE400E6F6CB /* texture_shaderv.vsh in Resources */,
@@ -570,6 +637,7 @@
 				195583D2222CBA7A00E6F6CB /* GLSLViewController.m in Sources */,
 				193B580021475A4C00E40425 /* ViewController.m in Sources */,
 				195583D9222CFD5500E6F6CB /* GLSLColorVertexViewController.m in Sources */,
+				19E2549322CEFD15001BE99D /* FrameBufferSimpleExampleViewController.m in Sources */,
 				193B58192147B34C00E40425 /* BaseViewController.m in Sources */,
 				1951821422963D4E00A5D261 /* LightColorsMaterialViewController.mm in Sources */,
 				193E5331228E5B40009C913F /* CommShader.mm in Sources */,
@@ -585,6 +653,7 @@
 				1939EC9F22C21256008BF118 /* DepthTestViewController.mm in Sources */,
 				193B580B21475A4D00E40425 /* main.m in Sources */,
 				193E5329228E3AC7009C913F /* CommViewCode.m in Sources */,
+				1944EF0622C460A40089D280 /* FrameBufferViewController.mm in Sources */,
 				190B6EA92297BCDB0087703C /* DiffuseMapViewController.mm in Sources */,
 				193B57FD21475A4C00E40425 /* AppDelegate.m in Sources */,
 				195FC993225ED159008FF16B /* CoordinateSystemsViewController.mm in Sources */,
@@ -593,6 +662,7 @@
 				19CF922422696F5B0077ADA4 /* CameraCSViewController.mm in Sources */,
 				19574446222F9D9100AE4383 /* TransformViewController.mm in Sources */,
 				195583D5222CD44B00E6F6CB /* GlSLUniformViewController.m in Sources */,
+				19E2548322CED3A8001BE99D /* FrameBufferView.mm in Sources */,
 				19CF922722697DE60077ADA4 /* ControlMoveCSViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

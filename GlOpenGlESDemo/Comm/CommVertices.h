@@ -19,4 +19,6 @@ float* getCubeAndNoramlAndMapVertices(void);
 float* getCubeAndTextureVertices(void);
 //获取地板顶点和纹理 长度：30
 float* getPlanVertices(void);
+//长度：24
+float* getQuadVertices(void);
 #endif /* CommVertices_h */

@@ -262,3 +262,20 @@ float* getPlanVertices(void) {
     
     return planeVertices;
 }
+
+//长度：24
+float* getQuadVertices(void) {
+    
+    static float quadVertices[] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
+        // positions X Y   // texCoords
+        -1.0f,  1.0f,  0.0f, 1.0f, //左前
+        -1.0f, -1.0f,  0.0f, 0.0f,//左后
+        1.0f, -1.0f,  1.0f, 0.0f, //右后
+        
+        -1.0f,  1.0f,  0.0f, 1.0f,
+        1.0f, -1.0f,  1.0f, 0.0f,
+        1.0f,  1.0f,  1.0f, 1.0f
+    };
+    
+    return quadVertices;
+}

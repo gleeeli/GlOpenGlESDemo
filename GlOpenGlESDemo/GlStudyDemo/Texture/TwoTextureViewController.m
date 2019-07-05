@@ -73,7 +73,7 @@
     
     //使用glUniform1i设置每个采样器的方式告诉OpenGL每个着色器采样器属于哪个纹理单元
     glUniform1i(glGetUniformLocation(shaderProgram, "texture1"), 0);
-    glUniform1i(glGetUniformLocation(shaderProgram, "texture2"), 1);
+    glUniform1i(glGetUniformLocation(shaderProgram, "texture2"), 2);
     
     
     
@@ -86,7 +86,7 @@
     // bind textures on corresponding texture units
     glActiveTexture(GL_TEXTURE0);// 在绑定纹理之前先激活纹理单元
     glBindTexture(GL_TEXTURE_2D, self.myTexture1);
-    glActiveTexture(GL_TEXTURE1);
+    glActiveTexture(GL_TEXTURE2);
     glBindTexture(GL_TEXTURE_2D, self.myTexture2);
     
     // render container
