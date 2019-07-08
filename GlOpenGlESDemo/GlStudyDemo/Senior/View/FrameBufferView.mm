@@ -21,6 +21,8 @@
     CommShader *shader;
     CommShader *shader1;
     GLuint textId;
+    GLint width;
+    GLint height;
 }
 
 + (Class)layerClass {
@@ -68,7 +70,7 @@
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer1);//_frameBuffer1 == 2
     
     glClearColor(1.0, 1.0, 1.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
 //    glViewport(0, 0, frameBuffer1Size.width * 2.0, frameBuffer1Size.height);
     glViewport(-160, 0, 320 * 2, 568);
@@ -84,11 +86,12 @@
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);//_frameBuffer == 1
     
     glClearColor(0.0, 1.0, 1.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
 //    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
 //    glViewport(0, 0, 320, 568);
     
+    NSLog(@"渲染：_frameBuffer:%d,_frameBuffer1：%d,",_frameBuffer,_frameBuffer1);
     NSLog(@"渲染视口宽度：%f,高度:%f",self.frame.size.width,self.frame.size.height);
     
     glBindVertexArrayOES(vbo);
@@ -124,16 +127,16 @@
         NSLog(@"Failed to set current OpenGL context");
         exit(1);
     }
+    
+//    glEnable(GL_DEPTH_TEST);
 }
 
 - (void)setupBuffer {
     
+    //渲染缓冲对象附件
     glGenRenderbuffers(1, &_colorRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
-    
-    GLint width = 0;
-    GLint height = 0;
     
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &width);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height);
@@ -151,6 +154,28 @@
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
     
     glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+    
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status == GL_FRAMEBUFFER_COMPLETE)
+    {
+        NSLog(@"帧缓冲完整，_frameBuffer：%d",_frameBuffer);
+    }else if (status == GL_FRAMEBUFFER_UNSUPPORTED) {
+        NSLog(@"帧缓冲fbo unsupported");
+    } else {
+        NSLog(@"帧缓冲Framebuffer Error");
+    }
+}
+
+- (void)setupDepthBuffer {
+    GLuint depthRenderBuffer;
+    glGenRenderbuffers(1, &depthRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, depthRenderBuffer);
+    //创建一个深度和模板渲染缓冲对象
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, width, height);
+    
+    //深度缓冲
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBuffer);
+    
 }
 
 - (void)setupBuffer1 {
@@ -167,13 +192,15 @@
     // 生成帧缓存
     glGenFramebuffers(1, &_frameBuffer1);
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer1);
-    // 纹理关联到帧缓存颜色附件(渲染成纹理贴图)
+    // 将纹理附件附加到帧缓冲上
     glFramebufferTexture2D(GL_FRAMEBUFFER,GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, fboTextId, 0);
+    
+//    [self setupDepthBuffer];
     
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status == GL_FRAMEBUFFER_COMPLETE)
     {
-        NSLog(@"帧缓冲完整");
+        NSLog(@"帧缓冲完整，_frameBuffer1：%d",_frameBuffer1);
     }else if (status == GL_FRAMEBUFFER_UNSUPPORTED) {
         NSLog(@"帧缓冲fbo unsupported");
     } else {
@@ -290,3 +317,15 @@
     glDeleteProgram(shader1.shaderProgram);
 }
 @end
+
+
+/*
+ 一个完整的帧缓冲需要满足以下的条件：
+ 
+ 附加至少一个缓冲（颜色、深度或模板缓冲）。
+ 至少有一个颜色附件(Attachment)。
+ 所有的附件都必须是完整的（保留了内存）。
+ 每个缓冲都应该有相同的样本数。
+ 
+ 调用glCheckFramebufferStatus，检查帧缓冲是否完整。它将会检测当前绑定的帧缓冲，并返回规范中这些值的其中之一。如果它返回的是GL_FRAMEBUFFER_COMPLETE，帧缓冲就是完整的了
+ */

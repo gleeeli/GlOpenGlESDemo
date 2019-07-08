@@ -37,6 +37,12 @@
     unsigned int renderbuff;
     unsigned int colorrenderbuff;
     unsigned int depthRenderBuffer;
+    unsigned int stencilRenderBuffer;
+    
+    unsigned int defaultFramebuffer;
+    unsigned int defaultColorRenderBuffer;
+    unsigned int defaultDepthRenderBuffer;
+    
     GLint backingWidth;
     GLint backingHeight;
 }
@@ -161,30 +167,41 @@
     [self destoryRenderAndFrameBuffer];
     [self setupRenderBuffer];
     [self setupDepthBuffer];
-    [self setupTexture];
+//    [self setupStencil];
     [self setupFrameBuffer];
+    
     [self checkFrameCompleteConfig];
+    [self setupTexture];
 }
 
 - (void)setupFrameBuffer {
     
-    glGenFramebuffers(1, &framebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    //将纹理附件绑定到帧缓冲
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
+    glGenFramebuffers(1, &defaultFramebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
     //渲染缓冲
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorrenderbuff);
     //深度缓冲
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBuffer);
     
+    //模板缓冲
+//    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, stencilRenderBuffer);
+    
     glBindRenderbuffer(GL_RENDERBUFFER, colorrenderbuff);
 }
 
 - (void)setupRenderBuffer {
-    
+    //生成颜色缓冲区
     glGenRenderbuffers(1, &colorrenderbuff);
     glBindRenderbuffer(GL_RENDERBUFFER, colorrenderbuff);
-    [self.mContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
+    //将可绘制对象的存储绑定到OpenGL ES renderbuffer对象。
+    //要使OpenGL ES renderbuffer与CAEAGLLayer对象分离，请将drawable参数设置为nil即可将两者分离。
+    if (![self.mContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer]) {
+        NSLog(@"ios renderbufferStorage failed");
+    }
+    
+    //定存储在 renderbuffer 中图像的宽高以及颜色格式，并按照此规格为之分配存储空间
+    //注意在iOS端 glRenderbufferStorage需要使用 renderbufferStorage:fromDrawable 函数来代替
+    //    glRenderbufferStorage(GL_RENDERBUFFER,GL_RGBA,backingWidth,backingHeight);
     
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
@@ -195,8 +212,16 @@
 - (void)setupDepthBuffer {
     glGenRenderbuffers(1, &depthRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, depthRenderBuffer);
+    //创建一个深度和模板渲染缓冲对象
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, backingWidth, backingHeight);
     
+}
+
+- (void)setupStencil {
+    glGenRenderbuffers(1, &stencilRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, stencilRenderBuffer);
+    //创建一个深度和模板渲染缓冲对象
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_STENCIL_INDEX8, backingWidth, backingHeight);
 }
 
 - (void)setupTexture {
@@ -212,6 +237,33 @@
     
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, SCREEN_WIDTH, SCREEN_HEIGHT, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
     glBindTexture(GL_TEXTURE_2D, 0);
+    
+    glGenFramebuffers(1, &framebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+    //将纹理附件绑定到帧缓冲
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
+    
+    glGenRenderbuffers(1, &defaultDepthRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, defaultDepthRenderBuffer);
+    //创建一个深度和模板渲染缓冲对象
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, backingWidth, backingHeight);
+
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, defaultDepthRenderBuffer);
+    
+    [self checkFrameCompleteConfig];
+}
+
+- (void)checkFrameCompleteConfig {
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status == GL_FRAMEBUFFER_COMPLETE)
+    {
+        NSLog(@"帧缓冲完整");
+    }else if (status == GL_FRAMEBUFFER_UNSUPPORTED) {
+        NSLog(@"帧缓冲fbo unsupported");
+    } else {
+        NSLog(@"帧缓冲Framebuffer Error:%d",status);
+    }
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 - (void)beginRender
@@ -227,19 +279,6 @@
     colorrenderbuff = 0;
 }
 
-- (void)checkFrameCompleteConfig {
-    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (status == GL_FRAMEBUFFER_COMPLETE)
-    {
-        NSLog(@"帧缓冲完整");
-    }else if (status == GL_FRAMEBUFFER_UNSUPPORTED) {
-        NSLog(@"帧缓冲fbo unsupported");
-    } else {
-        NSLog(@"帧缓冲Framebuffer Error");
-    }
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-}
-
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     [camera handleDelay];
 
@@ -252,7 +291,7 @@
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-//    glViewport(0, 0, backingWidth, backingHeight);
+    glViewport(0, 0, backingWidth, backingHeight);
     
     glm::mat4 model = glm::mat4(1.0f);
     glm::mat4 view_camer = [camera GetViewMatrix];
@@ -279,26 +318,28 @@
     glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindVertexArrayOES(0);
     
+    //绑定到默认帧缓冲，苹果渲染到Core Animation层必须通过color renderbuffer（颜色渲染缓冲）
    [self.screenShader useProgram];
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
     glDisable(GL_DEPTH_TEST);
 
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
     glBindVertexArrayOES(quadVAO);
-//    glActiveTexture(GLenum(GL_TEXTURE0));
+    //将纹理附件绑定到默认的0号纹理单元
     glBindTexture(GL_TEXTURE_2D, textureColorbuffer);    // use the color attachment texture as the texture of the quad plane
 
      [self.screenShader setInt:"screenTexture" intv:0];
-//
-//    [((GLKView *) self.view) bindDrawable];
-    glDrawArrays(GL_TRIANGLES, 0, 6);
 
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    
+    //绑定当前颜色缓冲，因为上面最后一次绑定的是深度渲染缓冲，所以这里必须更换
+    glBindRenderbuffer(GL_RENDERBUFFER, colorrenderbuff);
+    //显示当前颜色缓冲
     [self.mContext presentRenderbuffer:GL_RENDERBUFFER];
     
 }
-
 
 //创建以及加载纹理
 - (GLuint)loadTextureWithName:(NSString *)name isRepeate:(BOOL)isRepeat{

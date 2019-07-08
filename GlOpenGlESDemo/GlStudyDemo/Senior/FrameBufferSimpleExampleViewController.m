@@ -31,13 +31,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
+ 一个完整的帧缓冲需要满足以下的条件：
+ 
+ 附加至少一个缓冲（颜色、深度或模板缓冲）。
+ 至少有一个颜色附件(Attachment)。
+ 所有的附件都必须是完整的（保留了内存）。
+ 每个缓冲都应该有相同的样本数。
+ 
+ 调用glCheckFramebufferStatus，检查帧缓冲是否完整。它将会检测当前绑定的帧缓冲，并返回规范中这些值的其中之一。如果它返回的是GL_FRAMEBUFFER_COMPLETE，帧缓冲就是完整的了
 */
 
 @end
