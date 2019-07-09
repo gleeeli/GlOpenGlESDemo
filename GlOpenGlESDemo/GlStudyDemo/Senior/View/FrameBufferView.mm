@@ -75,6 +75,7 @@
 //    glViewport(0, 0, frameBuffer1Size.width * 2.0, frameBuffer1Size.height);
     glViewport(-160, 0, 320 * 2, 568);
     
+    //将textId的图片画到帧缓冲（_frameBuffer1）的纹理附件上
     glBindVertexArrayOES(vbo1);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textId);
@@ -94,10 +95,13 @@
     NSLog(@"渲染：_frameBuffer:%d,_frameBuffer1：%d,",_frameBuffer,_frameBuffer1);
     NSLog(@"渲染视口宽度：%f,高度:%f",self.frame.size.width,self.frame.size.height);
     
+    //将_frameBuffer1的纹理附件画到_frameBuffer的渲染缓冲
     glBindVertexArrayOES(vbo);
     glBindTexture(GL_TEXTURE_2D, fboTextId);
     glUniform1i(glGetUniformLocation(shader.shaderProgram,"u_Texture"), 0);
     glDrawArrays(GL_TRIANGLES, 0, 6);
+    
+    //显示渲染缓冲
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
