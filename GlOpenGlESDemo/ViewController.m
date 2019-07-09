@@ -59,7 +59,7 @@
     [self.muarray addObject:@{@"name":@"纹理贴图",@"desc":@"光对贴图物体的影响"}];
     [self.muarray addObject:@{@"name":@"深度测试",@"desc":@"深度缓存，防止后绘制的挡在前面，比如地板"}];
     [self.muarray addObject:@{@"name":@"模板测试",@"desc":@"立方体画边框"}];
-    [self.muarray addObject:@{@"name":@"帧缓冲",@"desc":@"帧缓冲和深度缓冲的结合，离屏渲染"}];
+    [self.muarray addObject:@{@"name":@"帧缓冲",@"desc":@"帧缓冲和深度缓冲的结合，离屏渲染，反向效果"}];
     [self.muarray addObject:@{@"name":@"帧缓冲2",@"desc":@"简单案列"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
