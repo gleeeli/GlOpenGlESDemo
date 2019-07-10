@@ -152,6 +152,13 @@
     glUseProgram(_shaderProgram);
 }
 
+- (void)deleteProgram {
+    if (_shaderProgram) {
+        glDeleteProgram(_shaderProgram);
+        _shaderProgram = 0;
+    }
+}
+
 - (void)setBool:(std::string)name boolv:(BOOL)boolv {
     glUniform1i(glGetUniformLocation(_shaderProgram, name.c_str()), (int)boolv);
 }
@@ -182,5 +189,9 @@
 
 - (void)setMat4:(std::string  )name mat4:(glm::mat4 )mat4 {
     glUniformMatrix4fv(glGetUniformLocation(_shaderProgram, name.c_str()), 1, GL_FALSE, &mat4[0][0]);
+}
+
+- (void)dealloc {
+    [self deleteProgram];
 }
 @end

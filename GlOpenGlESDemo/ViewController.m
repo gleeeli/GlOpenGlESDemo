@@ -28,6 +28,7 @@
 #import "StencilTestViewController.h"
 #import "FrameBufferViewController.h"
 #import "FrameBufferSimpleExampleViewController.h"
+#import "VideoDemoViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -61,6 +62,7 @@
     [self.muarray addObject:@{@"name":@"模板测试",@"desc":@"立方体画边框"}];
     [self.muarray addObject:@{@"name":@"帧缓冲",@"desc":@"帧缓冲和深度缓冲的结合，离屏渲染，反向效果"}];
     [self.muarray addObject:@{@"name":@"帧缓冲2",@"desc":@"简单案列"}];
+    [self.muarray addObject:@{@"name":@"视频播放帧显示",@"desc":@"YUV和RGB结合帧缓冲显示"}];
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     self.tableview.estimatedRowHeight = 44;
@@ -153,6 +155,8 @@
         vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameBufferViewController"];
     }else if ([title isEqualToString:@"帧缓冲2"]) {
         vc = [[FrameBufferSimpleExampleViewController alloc] init];
+    }else if ([title isEqualToString:@"视频播放帧显示"]) {
+        vc = [[VideoDemoViewController alloc] init];
     }
 
     vc.title = desc;
