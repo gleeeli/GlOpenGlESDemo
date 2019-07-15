@@ -896,7 +896,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.9.3/include;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/GlOpenGlESDemo/Verdon/include/glm0.9.9.3";
 				INFOPLIST_FILE = GlOpenGlESDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -914,7 +914,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.9.3/include;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/GlOpenGlESDemo/Verdon/include/glm0.9.9.3";
 				INFOPLIST_FILE = GlOpenGlESDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
