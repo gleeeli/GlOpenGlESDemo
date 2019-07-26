@@ -2,7 +2,7 @@
 //  GlVideoFrameView.h
 //  GlOpenGlESDemo
 //
-//  Created by 小柠檬 on 2019/7/9.
+//  Created by gleeeli on 2019/7/9.
 //  Copyright © 2019 gleeeli. All rights reserved.
 //
 

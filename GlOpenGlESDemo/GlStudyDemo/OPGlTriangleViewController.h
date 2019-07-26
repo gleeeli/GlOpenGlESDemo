@@ -2,7 +2,7 @@
 //  OPGlTriangleViewController.h
 //  LearnOpenGLES
 //
-//  Created by 小柠檬 on 2019/2/28.
+//  Created by gleeeli on 2019/2/28.
 //  Copyright © 2019年 林伟池. All rights reserved.
 //
 

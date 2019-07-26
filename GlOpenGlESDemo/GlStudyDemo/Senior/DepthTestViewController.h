@@ -2,7 +2,7 @@
 //  DepthTestViewController.h
 //  GlOpenGlESDemo
 //
-//  Created by 小柠檬 on 2019/6/25.
+//  Created by gleeeli on 2019/6/25.
 //  Copyright © 2019 gleeeli. All rights reserved.
 //
 

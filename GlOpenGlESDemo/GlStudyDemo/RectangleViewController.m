@@ -2,7 +2,7 @@
 //  RectangleViewController.m
 //  LearnOpenGLES
 //
-//  Created by 小柠檬 on 2019/3/1.
+//  Created by gleeeli on 2019/3/1.
 //  Copyright © 2019年 林伟池. All rights reserved.
 //
 

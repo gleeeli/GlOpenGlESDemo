@@ -2,7 +2,7 @@
 //  FrameBufferViewController.m
 //  GlOpenGlESDemo
 //
-//  Created by 小柠檬 on 2019/6/27.
+//  Created by gleeeli on 2019/6/27.
 //  Copyright © 2019 gleeeli. All rights reserved.
 //
 

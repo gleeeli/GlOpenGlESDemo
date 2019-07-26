@@ -2,7 +2,7 @@
 //  MouseAngleCSViewController.h
 //  GlOpenGlESDemo
 //
-//  Created by 小柠檬 on 2019/4/19.
+//  Created by gleeeli on 2019/4/19.
 //  Copyright © 2019年 gleeeli. All rights reserved.
 //
 
